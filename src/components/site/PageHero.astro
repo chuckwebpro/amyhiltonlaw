@@ -28,12 +28,17 @@ const isLocalPublic = isRemote && image.startsWith('/images/');
             alt={alt}
             widths={[...HERO_IMAGE_WIDTHS]}
             sizes={HERO_IMAGE_SIZES}
+            loading="eager"
+            fetchpriority="high"
             class="h-full max-h-[520px] w-full object-cover object-center"
           />
         ) : isRemote ? (
           <img
             src={image}
             alt={alt}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
             class="h-full max-h-[520px] w-full object-cover object-center"
           />
         ) : (
@@ -42,6 +47,8 @@ const isLocalPublic = isRemote && image.startsWith('/images/');
             alt={alt}
             widths={[550, 800, 1000, 1200, 1500]}
             sizes={HERO_IMAGE_SIZES}
+            loading="eager"
+            fetchpriority="high"
             class="h-full max-h-[520px] w-full object-cover object-center"
           />
         )

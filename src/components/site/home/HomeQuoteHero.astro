@@ -1,15 +1,24 @@
 ---
 import SiteContainer from '../SiteContainer.astro';
+import PublicPicture from '../PublicPicture.astro';
+import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../../../lib/publicImages';
 ---
 
 <section class="hero">
   <SiteContainer>
-    <div
-      class="hero-image"
-      style="background-image: url('/images/banner01-1500.webp'); background-position: 75% 50%;"
-      role="img"
-      aria-label="Child holding a colorful umbrella outdoors"
-    >
+    <div class="hero-image">
+      <PublicPicture
+        src="/images/banner01.webp"
+        alt="Child holding a colorful umbrella outdoors"
+        widths={[...HERO_IMAGE_WIDTHS]}
+        sizes={HERO_IMAGE_SIZES}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width={1500}
+        height={475}
+        class="hero-image__photo"
+      />
       <div class="hero-content">
         <h2>&ldquo;I know my parents only want the best for me.&rdquo;</h2>
       </div>
@@ -30,13 +39,23 @@ import SiteContainer from '../SiteContainer.astro';
   }
 
   .hero .hero-image {
-    background-size: cover;
-    background-repeat: no-repeat;
     position: absolute;
     inset: 0;
+    overflow: hidden;
+  }
+
+  .hero .hero-image__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 75% 50%;
   }
 
   .hero .hero-content {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     height: 100%;

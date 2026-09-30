@@ -1,45 +1,34 @@
 # Hilton Family Law
 
-> Certified Family Law Specialist serving Antioch and Contra Costa County, California. Divorce, child custody, child and spousal support, property division, domestic violence, enforcement, modifications, retirement, and set-asides.
+> Family law firm in Antioch, California, serving Contra Costa County and the East Bay. Practice areas include divorce, child custody, child and spousal support, property division, domestic violence, enforcement, modifications, retirement, and set-asides.
 
-Hilton Family Law helps families navigate divorce and custody with dignity. Content on this site is general information, not legal advice. For advice about your situation, contact the firm directly.
+Site content is general information, not legal advice. For guidance about a specific situation, contact the firm directly.
 
-## Contact
+Office: 5181 Lone Tree Way, Antioch, CA 94531. Phone (925) 384-2086. Fax (925) 775-7065. Email legal@amyhiltonlaw.com. Canonical pages use trailing slashes; legacy URLs redirect with HTTP 301.
 
-- Phone: (925) 384-2086
-- Fax: (925) 775-7065
-- Email: legal@amyhiltonlaw.com
-- Address: 5181 Lone Tree Way, Antioch, CA 94531
-- Website: https://amyhiltonlaw.com/
+## Site
 
-## Primary pages
-
-- Home: https://amyhiltonlaw.com/
-- Contact: https://amyhiltonlaw.com/contact/
-- News (articles index): https://amyhiltonlaw.com/news/
-- Endorsements: https://amyhiltonlaw.com/endorsements/
-- Amy Hilton: https://amyhiltonlaw.com/our-lawyers/amy-hilton/
-- Hemma Gill: https://amyhiltonlaw.com/our-lawyers/hemma-gill/
+- [Home](https://amyhiltonlaw.com/): Overview of the firm and primary services
+- [Contact](https://amyhiltonlaw.com/contact/): Office details and consultation request form
 
 ## Practice areas
 
-- Child custody and visitation: https://amyhiltonlaw.com/services/child-custody/
-- Child support and paternity: https://amyhiltonlaw.com/services/child-and-spousal-support/
-- Domestic violence: https://amyhiltonlaw.com/services/domestic-violence/
-- Property division: https://amyhiltonlaw.com/services/property-division/
-- Retirement: https://amyhiltonlaw.com/services/retirement/
-- Modifications of child custody: https://amyhiltonlaw.com/services/modifications/
-- Enforcement of agreements: https://amyhiltonlaw.com/services/enforcement/
-- Set asides: https://amyhiltonlaw.com/services/set-asides/
+- [Child custody](https://amyhiltonlaw.com/services/child-custody/): Custody and visitation
+- [Child and spousal support](https://amyhiltonlaw.com/services/child-and-spousal-support/): Guideline support, paternity, and related orders
+- [Property division](https://amyhiltonlaw.com/services/property-division/): Division of community and separate property
+- [Domestic violence](https://amyhiltonlaw.com/services/domestic-violence/): Protective orders and related family law matters
+- [Retirement](https://amyhiltonlaw.com/services/retirement/): Military and civilian retirement in divorce
+- [Modifications](https://amyhiltonlaw.com/services/modifications/): Changes to custody and support orders
+- [Enforcement](https://amyhiltonlaw.com/services/enforcement/): Enforcement of court orders and agreements
+- [Set asides](https://amyhiltonlaw.com/services/set-asides/): Set-aside of judgments and agreements
 
-## Geographic focus
+## Attorneys
 
-Antioch, Contra Costa County, and the San Francisco East Bay, California.
+- [Amy Hilton](https://amyhiltonlaw.com/our-lawyers/amy-hilton/): Founding attorney; Certified Family Law Specialist
+- [Hemma Gill](https://amyhiltonlaw.com/our-lawyers/hemma-gill/): Associate attorney profile
 
-## Articles
+## Optional
 
-Individual articles live at https://amyhiltonlaw.com/article/{slug}/ (canonical slugs; legacy URLs redirect with HTTP 301).
-
-## Sitemap
-
-https://amyhiltonlaw.com/sitemap-index.xml
+- [News](https://amyhiltonlaw.com/news/): Index of family law articles; each article is at `/article/{slug}/`
+- [Endorsements](https://amyhiltonlaw.com/endorsements/): Client testimonials
+- [Sitemap](https://amyhiltonlaw.com/sitemap-index.xml): Full list of indexable page URLs
