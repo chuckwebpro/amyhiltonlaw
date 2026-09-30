@@ -127,7 +127,7 @@ export const site: SiteConfig = {
 
   formEndpoint: '/api/submit.php',
   /** Google reCAPTCHA v3 site key — pair with recaptcha_secret in ~/private/amyhiltonlaw-mail.php */
-  recaptchaSiteKey: '',
+  recaptchaSiteKey: '6Lc6P9gtAAAAAIr3fL2mvl_pRgh0kHVwI63jwFPx',
 
   analytics: {
     logdash: '',
