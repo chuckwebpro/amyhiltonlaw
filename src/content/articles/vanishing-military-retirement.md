@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'vanishing-military-retirement'
 ---
 
-![Vanishing Military Retirement](/News/news-images/embeds/Military-Retirement.jpg)
+![Vanishing Military Retirement](/images/news/Military-Retirement.webp)
 
 ## The Case of the Vanishing Military Retirement
 

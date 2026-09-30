@@ -9,15 +9,13 @@ interface Props extends Omit<HTMLAttributes<'div'>, 'class'> {
 const { class: className, ...rest } = Astro.props;
 ---
 
-<Prose class:list={['site-prose w-full max-w-none', className]} {...rest}>
+<Prose fullWidth class:list={['site-prose w-full', className]} {...rest}>
   <slot />
 </Prose>
 
 <style>
-  /* Legacy interior pages fill `.contained`; do not use the 70ch reading measure. */
   .site-prose {
     width: 100%;
-    max-width: none;
   }
 
   .site-prose :global(h1),
@@ -78,6 +76,7 @@ const { class: className, ...rest } = Astro.props;
 
   .site-prose :global(img) {
     display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
     margin-block: 1.25rem;

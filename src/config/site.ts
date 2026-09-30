@@ -126,6 +126,7 @@ export const site: SiteConfig = {
   defaultOgImage: '/images/og.jpg',
 
   formEndpoint: '/api/submit.php',
+  /** Google reCAPTCHA v3 site key — pair with recaptcha_secret in ~/private/amyhiltonlaw-mail.php */
   recaptchaSiteKey: '',
 
   analytics: {

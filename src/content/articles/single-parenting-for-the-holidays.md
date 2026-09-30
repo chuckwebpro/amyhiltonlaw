@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'single-parenting-for-the-holidays'
 ---
 
-![Single Parenting for the Holidays](/News/news-images/embeds/Single_Parenting_Divorce_Lawyer.jpg)
+![Single Parenting for the Holidays](/images/news/Single_Parenting_Divorce_Lawyer.webp)
 
 ## Single Parenting for the Holidays
 

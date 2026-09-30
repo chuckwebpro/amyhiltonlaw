@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids'
 ---
 
-![Family Planning](/News/news-images/embeds/HFL-Family-Planning.jpg)
+![Family Planning](/images/news/HFL-Family-Planning.webp)
 
 This was not the way you had dreamed up happily ever after. You certainly didn’t expect to share the responsibility of raising your children between two different households, potentially with other partners in the mix. You’re fired up. You’re exhausted. Emotionally drained. Angry. Bitter. All of the above. You have no intention of making this co-parenting a walk in the park, you’re sure your ex is going to be unreasonable, irrational and unpredictable.
 

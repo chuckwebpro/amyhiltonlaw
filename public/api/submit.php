@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $config = loadMailConfig();
-if ($config === [] || empty($config['recaptcha_secret']) || empty($config['from_email']) || parseEmailList($config['notify_to'] ?? '') === []) {
+if ($config === [] || empty($config['from_email']) || parseEmailList($config['notify_to'] ?? '') === []) {
     error_log('Form mail config missing or incomplete.');
     jsonError(503, 'Form is temporarily unavailable.');
 }
@@ -39,10 +39,12 @@ if (!empty($_POST['_gotcha'])) {
     jsonSuccess();
 }
 
-$recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
-$minScore = (float) ($config['recaptcha_min_score'] ?? 0.5);
-if (!verifyRecaptcha($recaptchaToken, $config['recaptcha_secret'], $minScore, $remoteIp)) {
-    jsonError(400, 'Verification failed. Please refresh and try again.');
+if (recaptchaConfigured($config)) {
+    $recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
+    $minScore = (float) ($config['recaptcha_min_score'] ?? 0.5);
+    if (!verifyRecaptcha($recaptchaToken, (string) $config['recaptcha_secret'], $minScore, $remoteIp)) {
+        jsonError(400, 'Verification failed. Please refresh and try again.');
+    }
 }
 
 $formType = trim((string) ($_POST['form_type'] ?? ''));
@@ -132,13 +134,18 @@ try {
         $notificationHtml,
         $email,
         $name,
+        notificationBccAddresses($config, $formType),
     );
 
     if ($formMail['send_autoreply']) {
         $autoreplyTemplate = resolveTemplateForForm($config, $formType, 'autoreply');
+        $siteEmail = (string) ($config['site_email'] ?? parseEmailList($config['notify_to'] ?? '')[0] ?? '');
         $autoreplyHtml = renderTemplate($autoreplyTemplate, [
             'name' => escapeHtml($name),
             'site_name' => escapeHtml($fromName),
+            'site_url' => escapeHtml((string) ($config['site_url'] ?? '')),
+            'site_email' => escapeHtml($siteEmail),
+            'site_email_raw' => $siteEmail,
             'site_phone' => escapeHtml((string) ($config['site_phone'] ?? '')),
             'site_phone_href' => escapeHtml((string) ($config['site_phone_href'] ?? '')),
         ]);

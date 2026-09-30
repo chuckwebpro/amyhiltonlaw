@@ -38,11 +38,11 @@ On deploy, Astro copies `public/api/` into `dist/api/`. CI runs `composer instal
 Create a secrets file **outside `public_html`** so FTP deploys never overwrite it:
 
 ```
-~/private/site-mail.php
+~/private/amyhiltonlaw-mail.php
 ```
 
-Rename per client project (e.g. `peninsula-pavers-mail.php`) and update the first path in
-`public/api/lib/mailer.php`.
+See `private/README.md` in the repo. Update the first path in `public/api/lib/mailer.php` if
+you rename the file per client.
 
 Copy from [`public/api/config.example.php`](../public/api/config.example.php). The handler
 also reads `public/api/config.local.php` if present (local dev only — do not rely on this
@@ -50,16 +50,19 @@ in production).
 
 ### Required keys
 
-| Key                | Purpose                                         |
-| ------------------ | ----------------------------------------------- |
-| `recaptcha_secret` | Google reCAPTCHA v3 secret                      |
-| `notify_to`        | Where lead notifications go (string or array)   |
-| `from_email`       | From address on outbound mail                   |
-| `from_name`        | From display name                               |
-| `site_url`         | Optional — used in email templates              |
-| `site_phone`       | Optional — display phone in email footer        |
-| `site_phone_href`  | Optional — tel: link for phone (`+15550104477`) |
-| `timezone`         | Optional — defaults to `America/New_York`       |
+| Key                  | Purpose                                                                 |
+| -------------------- | ----------------------------------------------------------------------- |
+| `recaptcha_secret`   | Google reCAPTCHA v3 secret (optional until keys are ready)              |
+| `notify_to`          | Where lead notifications go (string or array)                           |
+| `notify_bcc_enabled` | `true` to apply BCC on team notifications (default **true** if omitted) |
+| `notify_bcc`         | Hidden copies on notifications — string or array (not autoreplies)      |
+| `from_email`         | From address on outbound mail                                           |
+| `from_name`          | From display name                                                       |
+| `site_url`           | Optional — used in email templates                                      |
+| `site_phone`         | Optional — display phone in email footer                                |
+| `site_phone_href`    | Optional — tel: link for phone (`+15550104477`)                         |
+| `site_email`         | Optional — office email in autoreply (defaults to first `notify_to`)    |
+| `timezone`           | Optional — defaults to `America/New_York`                               |
 
 ### Optional SMTP
 
@@ -94,23 +97,25 @@ Configure per form under the `forms` key:
 
 ```php
 'forms' => [
-    'contact' => [
-        'notification' => 'notification-contact.html',
-        'autoreply' => 'autoreply.html',
-        'subject' => 'New enquiry — Example Co',
-        'autoreply_subject' => 'We received your message — Example Co',
-        'send_autoreply' => true,
-    ],
+        'contact' => [
+            'notification' => 'notification-contact.html',
+            'autoreply' => 'autoreply-contact.html',
+            'subject' => 'New enquiry — Example Co',
+            'autoreply_subject' => 'We received your message — Example Co',
+            'send_autoreply' => true,
+        ],
 ],
 ```
 
-| Key                 | Purpose                                                  |
-| ------------------- | -------------------------------------------------------- |
-| `notification`      | Template file for the team email                         |
-| `autoreply`         | Template file for the customer email                     |
-| `subject`           | Team notification subject line                           |
-| `autoreply_subject` | Customer autoreply subject line                          |
-| `send_autoreply`    | `true` to send customer confirmation (default **false**) |
+| Key                 | Purpose                                                        |
+| ------------------- | -------------------------------------------------------------- |
+| `notification`      | Template file for the team email                               |
+| `autoreply`         | Template file for the customer email                           |
+| `subject`           | Team notification subject line                                 |
+| `autoreply_subject` | Customer autoreply subject line                                |
+| `send_autoreply`    | `true` to send customer confirmation (default **false**)       |
+| `bcc`               | Optional extra BCC for this form (merged with `notify_bcc`)    |
+| `source_label`      | Human-readable label in notification templates (`form_source`) |
 
 A global `'send_autoreply' => true/false` at the top level applies when a form does not
 override it.
@@ -145,22 +150,25 @@ For each email kind (`notification` or `autoreply`), the handler picks a templat
 | `{{site_phone}}`      | Phone display string                  |
 | `{{site_phone_href}}` | Phone tel: href                       |
 
-**Autoreply** (`autoreply.html`):
+**Autoreply** (`autoreply.html` or `autoreply-contact.html`):
 
-| Placeholder           | Content              |
-| --------------------- | -------------------- |
-| `{{name}}`            | Submitter name       |
-| `{{site_name}}`       | Business name        |
-| `{{site_phone}}`      | Phone display string |
-| `{{site_phone_href}}` | Phone tel: href      |
+| Placeholder           | Content                          |
+| --------------------- | -------------------------------- |
+| `{{name}}`            | Submitter name                   |
+| `{{site_name}}`       | Business name                    |
+| `{{site_url}}`        | Site URL                         |
+| `{{site_email}}`      | Office email (escaped)           |
+| `{{site_email_raw}}`  | Office email for `mailto:` links |
+| `{{site_phone}}`      | Phone display string             |
+| `{{site_phone_href}}` | Phone tel: href                  |
 
 Use inline CSS — email clients strip `<style>` blocks inconsistently.
 
 ## Form surfaces
 
-| `form_type` | Component            | Notification template       |
-| ----------- | -------------------- | --------------------------- |
-| `contact`   | `ContactBlock.astro` | `notification-contact.html` |
+| `form_type` | Component                                 | Notification template                                  |
+| ----------- | ----------------------------------------- | ------------------------------------------------------ |
+| `contact`   | `ContactForm.astro`, `ContactBlock.astro` | `notification-contact.html` / `autoreply-contact.html` |
 
 Shared client-side wiring: `RecaptchaV3.astro` + `SiteFormHandler.astro` in `BaseLayout.astro`.
 
@@ -178,6 +186,9 @@ Add the client domain to allowed domains.
 
 - **Site key** → `recaptchaSiteKey` in `src/config/site.ts`
 - **Secret key** → `recaptcha_secret` in the PHP config file
+
+Until both are set, the handler skips reCAPTCHA verification (honeypot and rate limiting still
+apply). Turn keys on together before exposing the site to heavy bot traffic.
 
 ## Local testing
 
@@ -200,8 +211,8 @@ fill in the optional SMTP fields in `config.local.php`.
 
 ## Production checklist
 
-1. Create `~/private/site-mail.php` on the server (rename per client — update `lib/mailer.php`).
-2. Set `recaptcha_secret`, `notify_to`, `from_email`, `from_name`.
+1. Copy `public/api/config.example.php` to `~/private/amyhiltonlaw-mail.php` on the server.
+2. Set `notify_to`, `from_email`, `from_name`; add `recaptcha_secret` when keys are ready.
 3. Configure `forms` — templates, subjects, autoreply per form.
 4. Deploy via CI (push to `main`) — PHPMailer installs automatically.
 5. Submit each form on the live site; confirm notifications arrive in inbox (not spam).

@@ -1,0 +1,29 @@
+---
+description: Site rebuilds must vendor all media in-repo; never depend on the old live site for images
+alwaysApply: true
+---
+
+# Capture migrated media in the project
+
+When replacing, migrating, or rebuilding a website:
+
+## Non-negotiable
+
+- **Every image, font file, PDF, and other static asset the site references must live in the repo** (typically `public/`, `src/assets/`, or committed content), not on the previous production host.
+- **Do not** point HTML, markdown, CSS, or JS at the old site’s URLs (e.g. `https://oldclient.com/...`) as a stand-in for migration. That breaks cutover, staging, offline builds, and any future host change.
+- **Do not** “resolve” legacy paths to the live old domain in build plugins unless you are **also** downloading those files into the project in the same change.
+
+## Required workflow
+
+1. **Inventory** — Collect every URL/path from content, scraped SEO JSON, OG tags, and inline markup.
+2. **Download into the repo** — Add a repeatable script (e.g. `scripts/migrate-*-images.mjs`) and commit the files under `public/…`.
+3. **Reference locally** — Use site-relative paths under `public/images/` (e.g. `/images/news/foo.jpg`). Assets must be served from this deployment, not the old host.
+4. **Verify** — After build, grep `dist/` for the old production hostname on asset URLs (exclude intentional canonical/OG page URLs if needed). Missing files in `public/` are a release blocker.
+
+## Red flags (stop and fix)
+
+- Rewriting img `src` to the **previous** site origin “because files are still there”
+- Shipping a static site that assumes legacy paths exist only on the old server
+- Migration marked done without committed binaries in git
+
+Treat missing migrated media as **critical**: a replacement site without captured assets is not deployable.

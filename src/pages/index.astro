@@ -13,7 +13,7 @@ const title =
 const description =
   legacy?.description ??
   'Home - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.';
-const image = normalizeLegacyOgImage(legacy?.ogImage, site.url);
+const image = normalizeLegacyOgImage(legacy?.ogImage) ?? site.defaultOgImage;
 ---
 
 <HomeLayout title={title} titleExact description={description} image={image}>

@@ -1,83 +1,118 @@
-# astro-business-starter
+# Hilton Family Law (amyhiltonlaw.com)
 
-Static business-site starter: Astro 5 + Tailwind CSS v4, token-driven theming, an accessible
-header, and full SEO output. Builds to plain HTML for cPanel/Apache hosting.
+Marketing site for **Hilton Family Law** — family law practice in Antioch and the East Bay. Static HTML from [Astro](https://astro.build) 7, styled with Tailwind CSS v4 and design tokens, deployed to cPanel over FTP.
 
-Three pages ship (`/`, `/404`, `/thank-you/`). Everything else — about, services, contact, legal,
-a blog — is added per project from the block library. There is no CMS and no content collection
-until a project needs one.
+**Production:** [https://amyhiltonlaw.com](https://amyhiltonlaw.com)
 
 ---
 
-## Populate before you build
+## Stack
 
-| File                                            | What goes in it                                          |            |
-| ----------------------------------------------- | -------------------------------------------------------- | ---------- |
-| `src/config/site.ts`                            | Business name, NAP, hours, socials, schema.org type      | required   |
-| `src/config/navigation.ts`                      | Nav tree, header CTA, footer and legal links             | required   |
-| `tokens/*.json`                                 | Replace the demo brand — theme regenerates on next build | required   |
-| `public/favicon.svg` + `src/assets/logo.svg`    | Client marks                                             | required   |
-| `public/robots.txt`                             | Point the `Sitemap:` line at the real domain             | required   |
-| `astro.config.mjs` → `site`                     | Production origin, no trailing slash                     | required   |
-| `site.ts` → `formEndpoint` / `recaptchaSiteKey` | PHP form handler + reCAPTCHA v3 site key                 | optional   |
-| `site.ts` → `analytics` / `verification`        | Per-platform IDs — blank means that vendor ships nothing | optional   |
-| `.github/workflows/deploy.yml`                  | FTP host/path secrets                                    | to publish |
-| `_templates/collection/`                        | Copy only if the site needs a blog or similar            | optional   |
+| Layer     | Choice                                                 |
+| --------- | ------------------------------------------------------ |
+| Framework | Astro 7 (static output, trailing-slash URLs)           |
+| Styling   | Tailwind v4, token-generated `theme.css`               |
+| Content   | Markdown collections (articles, services, lawyers)     |
+| Forms     | PHP handler in `public/api/` (PHPMailer on the server) |
+| Hosting   | Apache/cPanel; rules in `public/.htaccess`             |
+
+Node **22+** (see `.nvmrc`).
+
+---
+
+## Local development
+
+```bash
+npm ci
+npm run dev
+```
+
+Dev runs on [http://localhost:4321](http://localhost:4321). `predev` / `prebuild` regenerate the theme from `tokens/*.json` and optimize images under `public/images/`.
+
+To exercise contact forms against a local build:
+
+```bash
+npm run php:dev
+```
+
+Requires PHP and Composer on your machine; see `docs/FORMS-AND-EMAIL.md`. Local mail config:
+`public/api/config.local.php` (copy from `config.example.php`).
+
+**Production:** copy `public/api/config.example.php` to `~/private/amyhiltonlaw-mail.php` on
+cPanel (see `private/README.md`). reCAPTCHA keys can be added later in that file and in
+`src/config/site.ts`.
+
+---
 
 ## Commands
 
-| Command           | Does                                                     |
-| ----------------- | -------------------------------------------------------- |
-| `npm run dev`     | Generates the theme, then starts the dev server on :4321 |
-| `npm run build`   | Generates the theme, then builds to `dist/`              |
-| `npm run verify`  | Generates the theme, then `astro check` + Prettier check |
-| `npm run format`  | Writes Prettier formatting                               |
-| `npm run audit`   | Lighthouse CI + pa11y against the built site             |
-| `npm run php:dev` | Build, install PHPMailer, serve `dist/` for form testing |
+| Command                       | Purpose                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| `npm run dev`                 | Theme + image prep, then Astro dev server                                |
+| `npm run build`               | Production build to `dist/`                                              |
+| `npm run preview`             | Serve `dist/` locally                                                    |
+| `npm run verify`              | `astro check` + Prettier check (same gate as CI/deploy)                  |
+| `npm run format`              | Apply Prettier                                                           |
+| `npm run images:optimize`     | Regenerate responsive WebP variants from source images                   |
+| `npm run audit`               | Lighthouse CI + pa11y (local only; not run in GitHub Actions)            |
+| `npm run migrate:all`         | Re-run legacy migration pipeline (content, articles, interior, htaccess) |
+| `npm run migrate:news-images` | Pull article images into `public/images/news/`                           |
 
-Build the style guide into a production bundle with `STYLEGUIDE=1 npm run build`.
+Optional style guide bundle: `STYLEGUIDE=1 npm run build`.
 
-## Docs
+---
 
-| Doc                           | Covers                                              |
-| ----------------------------- | --------------------------------------------------- |
-| `docs/NEW-PROJECT.md`         | The order to work in when starting a client site    |
-| `docs/THEMING.md`             | Tokens, the generated theme, rebranding             |
-| `docs/RESPONSIVE-RULES.md`    | Desktop-first defaults for tablet and mobile        |
-| `docs/ADDING-A-COLLECTION.md` | Adding a blog or similar, if the project needs one  |
-| `docs/FORMS-AND-EMAIL.md`     | PHP form handler, reCAPTCHA, mail config, templates |
-| `docs/HOSTING.md`             | cPanel setup, deploy secrets, log analytics         |
-| `docs/DESIGNER-BRIEF.md`      | Hand to a designer when Figma is involved           |
+## Where to change things
 
-## Theming
+| What                                            | Location                                                           |
+| ----------------------------------------------- | ------------------------------------------------------------------ |
+| Business name, NAP, SEO defaults, form endpoint | `src/config/site.ts`                                               |
+| Header, footer, practice links                  | `src/config/navigation.ts`                                         |
+| News / blog posts                               | `src/content/articles/*.md` → `/article/[slug]/`                   |
+| Practice area pages                             | `src/content/services/*.md` → `/services/[slug]/`                  |
+| Attorney bios                                   | `src/content/lawyers/*.md` → `/our-lawyers/[slug]/`                |
+| Home, contact, news index, endorsements         | `src/pages/`                                                       |
+| Brand colors, type scale                        | `tokens/*.json` (do not edit generated `src/styles/theme.css`)     |
+| Logos, heroes, article art                      | `public/images/`                                                   |
+| Apache redirects, caching, HTTPS                | `public/.htaccess` (+ generated legacy rules from migrate scripts) |
+| Canonical origin                                | `astro.config.mjs` → `site` (must match `site.ts` → `url`)         |
 
-`tokens/*.json` is the only committed source of design values. `src/styles/theme.css` is
-**generated** from it on every `dev`, `build`, and `verify`, and is gitignored — never edit it.
+Article bodies may reference legacy `/News/…` image paths; build plugins rewrite those to local `/images/news/…`. Every asset the site loads must exist in this repo, not on the old host.
 
-Tokens map straight onto Tailwind v4 namespaces, so `color.brand.500` becomes `--color-brand-500`
-and yields `bg-brand-500`. Semantic aliases (`surface`, `ink`, `line`) point at the raw scales, so
-a rebrand usually means editing the brand ramp alone.
+---
 
-There is **no override stylesheet**. If one place needs a different value, that is a component-level
-decision — a prop or a local class — not a global escape hatch.
+## Layout and theming
 
-Tokens can come from a Figma library via Tokens Studio, from another tool's export, or from editing
-the JSON by hand. The pipeline cannot tell the difference.
+Pages are built from a block library using **Section → Container → content**. Responsive behavior is desktop-first (`max-*` breakpoints). Details: `docs/RESPONSIVE-RULES.md`, `docs/THEMING.md`.
 
-## Layout model
+---
 
-Every block is `Section > Container > content`:
+## GitHub Actions
 
-- **`Section`** — full viewport width. Owns background, vertical rhythm, semantic tag.
-- **`Container`** — `max-w-page` (1350px), centred, with gutters. Owns content arrangement.
+| Workflow                                    | Trigger                       | What it does                                                            |
+| ------------------------------------------- | ----------------------------- | ----------------------------------------------------------------------- |
+| **CI** (`.github/workflows/ci.yml`)         | Push to `main`, pull requests | `npm run verify`, `npm run build`                                       |
+| **Deploy** (`.github/workflows/deploy.yml`) | Push to `main`, manual        | `verify` → PHPMailer in `public/api` → `build` → FTPS upload of `dist/` |
 
-Adjacent `Section`s sharing a background collapse the seam automatically (see `global.css`), so
-stacked bands read as one flow while a colour change keeps its full padding.
+Deploy secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_SERVER_DIR`. Server setup: `docs/HOSTING.md`.
 
-Responsive is **desktop-first** using Tailwind `max-*` variants. See `docs/RESPONSIVE-RULES.md`.
+`trailingSlash: 'always'` and `build.format: 'directory'` are paired on purpose — change one only if you understand the Apache URL implications (`docs/HOSTING.md`).
 
-## Deploying
+---
 
-Static output in `dist/` uploads as-is. `public/.htaccess` handles HTTPS, non-www, trailing
-slashes, compression, cache headers, and the 404. `trailingSlash: 'always'` + `build.format:
-'directory'` are pinned together — changing one without the other breaks URLs on Apache.
+## Documentation
+
+| Doc                           | Topics                                                                  |
+| ----------------------------- | ----------------------------------------------------------------------- |
+| `docs/HOSTING.md`             | cPanel, FTP deploy, SSL, analytics logs                                 |
+| `docs/FORMS-AND-EMAIL.md`     | PHP submit handler, mail config, reCAPTCHA                              |
+| `docs/THEMING.md`             | Design tokens and rebranding                                            |
+| `docs/RESPONSIVE-RULES.md`    | Breakpoints and layout conventions                                      |
+| `docs/NEW-PROJECT.md`         | Starter checklist (useful when cloning the template for another client) |
+| `docs/ADDING-A-COLLECTION.md` | Adding new content types                                                |
+
+---
+
+## Starter lineage
+
+The repo began from **astro-business-starter** (same `package.json` name). This project is fully configured for Hilton Family Law; use `docs/NEW-PROJECT.md` only when spinning up a new client from the same base.

@@ -18,7 +18,7 @@ const { sitePath, heroImage, heroImageAlt = '', breadcrumbs, service } = Astro.p
 const legacy = getLegacySeo(sitePath);
 const pageTitle = legacy?.title;
 const pageDescription = legacy?.description;
-const ogImage = normalizeLegacyOgImage(legacy?.ogImage, site.url);
+const ogImage = normalizeLegacyOgImage(legacy?.ogImage) ?? site.defaultOgImage;
 const heroTitle = legacy?.h1 ?? pageTitle ?? site.name;
 ---
 

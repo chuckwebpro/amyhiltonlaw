@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'property-division'
 ---
 
-![Property Division](/News/news-images/embeds/Property-Division.jpg)
+![Property Division](/images/news/Property-Division.webp)
 
 ## Property Division and the Family Business
 

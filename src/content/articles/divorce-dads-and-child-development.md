@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'divorce-dads-and-child-development'
 ---
 
-![Divorce, Dads & Child Development](/News/news-images/embeds/Family-Law-Divorce.jpg)
+![Divorce, Dads & Child Development](/images/news/Family-Law-Divorce.webp)
 
 ## Divorce, Dads, and Child Development
 

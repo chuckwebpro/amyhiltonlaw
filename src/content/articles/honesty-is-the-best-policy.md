@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'honesty-is-the-best-policy'
 ---
 
-![Honesty is the Best Policy](/News/news-images/embeds/honesty.jpg)
+![Honesty is the Best Policy](/images/news/honesty.webp)
 
 ## Hiding Assets and Other Lies
 

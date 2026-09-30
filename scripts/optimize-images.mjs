@@ -60,6 +60,11 @@ const PROFILES = [
     quality: 85,
     keepSource: true,
   },
+  {
+    test: /^news\/[^/]+\.(jpe?g|png)$/i,
+    responsive: [600, 900, 1200, 1440],
+    quality: 82,
+  },
 ];
 
 /**
@@ -179,6 +184,33 @@ async function processFile(file) {
   console.warn(`optimize-images: unhandled profile for ${file.rel}`);
 }
 
+/** 2× for ~860px article column when sources cap at 1200px. */
+async function ensureNews1440From1200() {
+  const newsDir = path.join(IMAGE_ROOT, 'news');
+  let entries;
+  try {
+    entries = await readdir(newsDir);
+  } catch {
+    return;
+  }
+  for (const name of entries) {
+    if (!/-1200\.webp$/i.test(name)) continue;
+    const abs = path.join(newsDir, name);
+    const outAbs = abs.replace(/-1200\.webp$/i, '-1440.webp');
+    const sourceMtime = await mtime(abs);
+    try {
+      if ((await mtime(outAbs)) >= sourceMtime) continue;
+    } catch {
+      // missing
+    }
+    await sharp(abs)
+      .resize({ width: 1440, withoutEnlargement: false })
+      .webp({ quality: 82, effort: 4 })
+      .toFile(outAbs);
+    console.log(`optimize-images: news/${name} → -1440.webp (2× column)`);
+  }
+}
+
 const files = await listRasterImages(IMAGE_ROOT);
 if (files.length === 0) {
   console.log('optimize-images: no JPEG/PNG sources to process');
@@ -187,3 +219,5 @@ if (files.length === 0) {
     await processFile(file);
   }
 }
+
+await ensureNews1440From1200();

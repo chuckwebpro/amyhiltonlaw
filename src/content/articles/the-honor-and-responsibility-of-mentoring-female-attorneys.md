@@ -11,7 +11,7 @@ legacySlug: 'the-honor-and-responsibility-of-mentoring-female-attorneys-'
 
 Since I began my business several years ago, I have had the honor and responsibility of mentoring and training three relatively new attorneys, all females, from various backgrounds. Like a proud parent, watching them grow and develop their skills as attorneys is part of my personal story and purpose. Not only do I consider mentoring part of my purpose, but also it is my responsibility as a person with certain gifts. Like the Bible says, to whom much has been given, much is required.
 
-![](/News/news-images/embeds/STAND-AMY.jpg)
+![](/images/news/STAND-AMY.webp)
 
 **"I feel very strongly about mentoring because of my own journey, and the fact that someone took a chance on me."**
 

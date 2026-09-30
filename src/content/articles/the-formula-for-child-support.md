@@ -13,7 +13,7 @@ Potential clients and current clients have similar concerns when it comes to spo
 
 In California, child support is a numbers game. It is a complex algorithm that would take a PhD in math to understand or explain. To aide in the calculation of support, there are programs that family law attorneys and the court uses based on certain inputs. The components of the calculation are as follows: The parents’ incomes, how much time each parent spends with the child, and any tax deductions that are available to either parent.
 
-![](/News/news-images/embeds/spyglass.jpg)
+![](/images/news/spyglass.webp)
 
 The formula is the same whether it is a case concerning a dissolution (divorce), separation or paternity case (where the parents were never married), and domestic partnership cases. The guideline is a rebuttable presumption as the correct child support amount in the case. There are limited reasons to modify the child support calculations: If the parent being ordered to pay child support has an extraordinarily high income and the amount determined under the formula would exceed the needs of the children, a parent is not contributing to the needs of the children at a level commensurate with that parent’s custodial time, both parents have substantially equal time with the children and one parent has a much lower or higher percentage of income used for housing than the other parent, or the children have special medical or other needs that could require child support greater than the formula amount. While not a comprehensive list, the Court will consider other reasons to deviate from guideline, but this is rare.
 

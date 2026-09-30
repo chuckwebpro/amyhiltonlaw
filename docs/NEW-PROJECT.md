@@ -52,6 +52,23 @@ Blocks are props-only. Pass data in; never query content from inside a block.
 If the site has a blog or similar, follow `docs/ADDING-A-COLLECTION.md`. If it does
 not, skip this entirely — no collection ships by default and nothing needs removing.
 
+## Site replacement (migrating an existing live site)
+
+If this project **replaces** a site already on the web (same or new domain):
+
+1. Copy `.cursor/rules/capture-migrated-media.mdc` from `_templates/cursor-rules/` if the
+   rule is not already present (it should also live in your user-wide `~/.cursor/rules/`).
+2. **Inventory every asset** — article images, OG images from scraped SEO, PDFs, fonts, hero
+   photography referenced in HTML or markdown.
+3. **Download into `public/`** (or `src/assets/`) and commit the binaries. Add a script such as
+   `npm run migrate:news-images` so assets can be refreshed deliberately, not by hand once.
+4. **Reference site-relative paths** in content (`/news/...`, `/images/...`). Do not rewrite
+   markup to the old production hostname.
+5. **Before launch**, confirm built HTML does not load images from the previous host. Missing
+   files in git are a release blocker.
+
+A replacement without captured media is not deployable — the old server will not be there forever.
+
 ## 7. Forms and tracking
 
 - `site.ts` → `formEndpoint` (`/api/submit.php`) and `recaptchaSiteKey`. Set up the PHP

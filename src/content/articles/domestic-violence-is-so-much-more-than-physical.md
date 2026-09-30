@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'domestic-violence-is-so-much-more-than-physical'
 ---
 
-![Domestic Violence is so much more than physical abuse and it can alter custody and visitation for the life of a child.](/News/news-images/embeds/article-abuse.jpg)
+![Domestic Violence is so much more than physical abuse and it can alter custody and visitation for the life of a child.](/images/news/article-abuse.webp)
 
 ## Domestic Violence Is So Much More than Physical Abuse and It Can Alter Custody and Visitation for the Life of a Child
 

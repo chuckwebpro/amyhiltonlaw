@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'high-net-worth-divorce'
 ---
 
-![High Net Worth Divorce](/News/news-images/embeds/High_Net_Worth_Divorce.jpg)
+![High Net Worth Divorce](/images/news/High_Net_Worth_Divorce.webp)
 
 ## Family Law Representation for the Bay Area
 

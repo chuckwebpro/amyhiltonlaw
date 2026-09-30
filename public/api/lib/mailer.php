@@ -10,7 +10,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 function loadMailConfig(): array
 {
     $paths = [
-        dirname(__DIR__, 3) . '/private/site-mail.php',
+        dirname(__DIR__, 3) . '/private/amyhiltonlaw-mail.php',
         __DIR__ . '/../config.local.php',
     ];
 
@@ -170,8 +170,33 @@ function parseEmailList(string|array $value): array
     return $emails;
 }
 
-function sendMail(array $config, string|array $to, string $toName, string $subject, string $htmlBody, ?string $replyTo = null, ?string $replyToName = null): void
+/**
+ * BCC addresses for team notifications (not autoreplies).
+ *
+ * @return list<string>
+ */
+function notificationBccAddresses(array $config, string $formType): array
 {
+    if (array_key_exists('notify_bcc_enabled', $config) && !$config['notify_bcc_enabled']) {
+        return [];
+    }
+
+    $global = parseEmailList($config['notify_bcc'] ?? []);
+    $form = parseEmailList($config['forms'][$formType]['bcc'] ?? '');
+
+    return array_values(array_unique([...$global, ...$form]));
+}
+
+function sendMail(
+    array $config,
+    string|array $to,
+    string $toName,
+    string $subject,
+    string $htmlBody,
+    ?string $replyTo = null,
+    ?string $replyToName = null,
+    string|array|null $bcc = null,
+): void {
     $mail = new PHPMailer(true);
     $recipients = parseEmailList($to);
 
@@ -179,12 +204,20 @@ function sendMail(array $config, string|array $to, string $toName, string $subje
         throw new RuntimeException('No valid recipient addresses.');
     }
 
+    $bccRecipients = parseEmailList($bcc ?? []);
+    $toLower = array_map(static fn(string $address): string => strtolower($address), $recipients);
+
     try {
         configureMailer($mail, $config);
 
         $mail->setFrom($config['from_email'], $config['from_name']);
         foreach ($recipients as $index => $address) {
             $mail->addAddress($address, $index === 0 ? $toName : '');
+        }
+        foreach ($bccRecipients as $address) {
+            if (!in_array(strtolower($address), $toLower, true)) {
+                $mail->addBCC($address);
+            }
         }
         $mail->isHTML(true);
         $mail->Subject = $subject;
@@ -252,6 +285,15 @@ function checkRateLimit(string $ip, array $config): bool
     file_put_contents($file, implode("\n", $hits), LOCK_EX);
 
     return true;
+}
+
+/** True when a real secret is configured (not blank or the example placeholder). */
+function recaptchaConfigured(array $config): bool
+{
+    $secret = trim((string) ($config['recaptcha_secret'] ?? ''));
+
+    return $secret !== ''
+        && $secret !== 'YOUR_RECAPTCHA_SECRET_KEY';
 }
 
 function verifyRecaptcha(string $token, string $secret, float $minScore, string $remoteIp): bool

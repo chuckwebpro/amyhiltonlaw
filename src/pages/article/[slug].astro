@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { renderArticleBody } from '../../lib/articleMarkdown';
 import OtherPostsSidebar from '../../components/site/OtherPostsSidebar.astro';
 import { getPublished, sidebarPosts, type ArticleEntry } from '../../lib/articles';
 import { getArticleCardImages } from '../../lib/articleCard';
@@ -25,7 +25,7 @@ interface Props {
 }
 
 const { entry, all } = Astro.props;
-const { Content } = await render(entry);
+const { code: articleHtml } = await renderArticleBody(entry.body, entry.filePath);
 
 const legacy = entry.data.legacySlug ? getLegacyArticleSeo(entry.data.legacySlug) : undefined;
 const pageTitle = legacy?.title ?? entry.data.title;
@@ -54,6 +54,6 @@ const otherPosts = sidebarPosts(all);
     { name: entry.data.title, href: `/article/${entry.id}/` },
   ]}
 >
-  <Content />
+  <Fragment set:html={articleHtml} />
   <OtherPostsSidebar slot="sidebar" posts={otherPosts} currentId={entry.id} />
 </ArticleLayout>

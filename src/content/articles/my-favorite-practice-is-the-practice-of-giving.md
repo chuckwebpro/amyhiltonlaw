@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'my-favorite-practice-is-the-practice-of-giving'
 ---
 
-![](/News/news-images/embeds/Thanks-AH.jpg)
+![](/images/news/Thanks-AH.webp)
 
 ## My Favorite Practice is the Practice of Gving
 

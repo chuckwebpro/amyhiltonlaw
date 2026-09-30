@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'tips-for-making-a-blended-family-a-healthy-family'
 ---
 
-![Tips for Making a Blended Family a Healthy Family](/News/news-images/embeds/article-blended_fam.jpg)
+![Tips for Making a Blended Family a Healthy Family](/images/news/article-blended_fam.webp)
 
 Blended families, or stepparent families, are becoming more and more common. While the divorce rate for first marriages is high (these statistics depend a lot on age and education level, so the standard 50% isn’t really accurate), it’s even higher for blended families and worse for third marriages. No one goes into a marriage without hope. There are some things that you can do to help make a blended family a healthy family.
 

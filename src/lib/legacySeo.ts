@@ -1,4 +1,5 @@
 import legacySeo from '../data/legacy-seo.json';
+import { resolveLegacyNewsImageSrc } from './legacyNewsImages';
 
 export interface LegacySeoEntry {
   path: string;
@@ -25,13 +26,17 @@ export function getLegacyArticleSeo(legacySlug: string): LegacySeoEntry | undefi
   return getLegacySeo(`/article/${legacySlug}/`);
 }
 
-/** Prefer HTTPS and site default when legacy OG URLs are http or extensionless. */
-export function normalizeLegacyOgImage(
-  url: string | undefined,
-  siteOrigin: string,
-): string | undefined {
+/** Normalize scraped OG URLs to site-relative news image paths (or pass through other relative paths). */
+export function normalizeLegacyOgImage(url: string | undefined): string | undefined {
   if (!url) return undefined;
-  const fixed = url.replace(/^http:\/\//i, 'https://').replace(/^https:\/\/www\./i, 'https://');
-  if (fixed.startsWith('https://')) return fixed;
-  return new URL(fixed, siteOrigin).href;
+  if (
+    /^https?:\/\//i.test(url) ||
+    /^\/News\//i.test(url) ||
+    /^\/news\/news-images\//i.test(url) ||
+    /^\/images\/news\//i.test(url)
+  ) {
+    return resolveLegacyNewsImageSrc(url);
+  }
+  if (url.startsWith('/')) return url;
+  return `/${url.replace(/^\//, '')}`;
 }

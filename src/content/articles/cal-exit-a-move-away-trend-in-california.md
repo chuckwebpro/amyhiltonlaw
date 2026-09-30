@@ -9,7 +9,7 @@ legacySlug: 'cal-exit---a-move-away-trend-in-california'
 
 When I began practicing family law in California, move-away cases, which is family law nomenclature for one parenting moving a distance far enough away that the current parenting schedule is no longer feasible and would need to change, were rare.
 
-![](/News/news-images/embeds/story-leave.jpg)
+![](/images/news/story-leave.webp)
 
 Most divorcing families stayed in the same area and co-parented close to each other. For nearly a decade, I had one move-away case and it was in the same state. Over the last five years, the number of move-away cases has exploded, this past year, I had four out of state move aways and one international case.
 

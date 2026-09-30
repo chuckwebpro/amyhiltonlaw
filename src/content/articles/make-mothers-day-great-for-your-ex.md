@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'make-mothers-day-great-for-your-ex'
 ---
 
-![Make Mother](/News/news-images/embeds/MothersDay.jpg)
+![Make Mother](/images/news/MothersDay.webp)
 
 Make Mother’s Day Great for Your Ex Because its Really About Your Kids: Buy Her the Flowers that You Should Have Gotten Her During the Marriage
 

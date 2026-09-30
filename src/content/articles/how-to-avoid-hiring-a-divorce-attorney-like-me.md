@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'how-to-avoid-hiring-a-divorce-attorney-like-me'
 ---
 
-![Don](/News/news-images/embeds/Antioch-Divorce-Attorney-Antioch-CA.jpg)
+![Don](/images/news/Antioch-Divorce-Attorney-Antioch-CA.webp)
 
 ## Don't Ignore Red Flags Before You Say I Do
 

@@ -9,7 +9,7 @@ legacySlug: 'my-ex-is-a-narcissist--honey-they-all-are'
 
 Many of my clients believe they are divorcing narcissist. While it is not true in all cases, many of my client's believe it is true for them.
 
-![](/News/news-images/embeds/nars-lg.jpg)
+![](/images/news/nars-lg.webp)
 
 While there are some true narcissists across the court isle, I have come across enough to know when I am dealing with one. The one trait that is consistent with a true narcissist is that they have their own version of reality and will bully, shame, criticize and generally terrorize anyone who does not agree with them, especially a divorcing spouse and their children.
 

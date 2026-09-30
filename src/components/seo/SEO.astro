@@ -1,5 +1,6 @@
 ---
 import { site } from '../../config/site';
+import { resolveLegacyNewsImageSrc } from '../../lib/legacyNewsImages';
 
 interface Props {
   title?: string;
@@ -33,7 +34,10 @@ const pageTitle = !title
     : `${title} | ${site.name}`;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
-const ogImage = new URL(image, site.url).href;
+const ogImage =
+  image.startsWith('/images/news/') || /news-images/i.test(image)
+    ? resolveLegacyNewsImageSrc(image)
+    : image;
 ---
 
 <title>{pageTitle}</title>

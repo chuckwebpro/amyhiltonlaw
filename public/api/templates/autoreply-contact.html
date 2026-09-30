@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>We received your message — {{site_name}}</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f5;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1c1c1c;
+    "
+  >
+    <table
+      role="presentation"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+      style="background-color: #f4f4f5; padding: 32px 16px"
+    >
+      <tr>
+        <td align="center">
+          <table
+            role="presentation"
+            width="600"
+            cellspacing="0"
+            cellpadding="0"
+            style="
+              max-width: 600px;
+              width: 100%;
+              background-color: #ffffff;
+              border: 1px solid #e4e4e7;
+            "
+          >
+            <tr>
+              <td style="background-color: #18181b; padding: 28px 32px 24px">
+                <p
+                  style="
+                    margin: 0 0 8px;
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: #a1a1aa;
+                  "
+                >
+                  {{site_name}}
+                </p>
+                <h1 style="margin: 0; font-size: 24px; font-weight: 600; color: #ffffff">
+                  Thank you, {{name}}
+                </h1>
+                <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.5; color: #d4d4d8">
+                  Let us guide you through this storm.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 32px">
+                <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.65">
+                  Thank you for contacting Hilton Family Law. We received your message and will
+                  reply as soon as we can.
+                </p>
+                <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.65">
+                  If your matter is urgent, please call our Antioch office at
+                  <a
+                    href="tel:{{site_phone_href}}"
+                    style="color: #18181b; font-weight: 600; text-decoration: none"
+                    >{{site_phone}}</a
+                  >.
+                </p>
+                <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.65">
+                  You can also reach us at
+                  <a
+                    href="mailto:{{site_email_raw}}"
+                    style="color: #18181b; font-weight: 600; text-decoration: none"
+                    >{{site_email}}</a
+                  >
+                  or visit
+                  <a
+                    href="{{site_url}}"
+                    style="color: #18181b; font-weight: 600; text-decoration: none"
+                    >{{site_url}}</a
+                  >.
+                </p>
+                <p style="margin: 0 0 0; font-size: 16px; line-height: 1.65; color: #52525b">
+                  — The {{site_name}} team
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 0 32px 28px">
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  style="background-color: #fafafa; border-left: 4px solid #71717a"
+                >
+                  <tr>
+                    <td style="padding: 14px 16px">
+                      <p style="margin: 0; font-size: 12px; line-height: 1.55; color: #71717a">
+                        This message confirms that we received your inquiry. It does not create an
+                        attorney-client relationship. Please do not send confidential or
+                        time-sensitive information by email until we have confirmed that we
+                        represent you.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px 32px 24px; background-color: #18181b; text-align: center">
+                <p style="margin: 0 0 4px; font-size: 13px; color: rgba(255, 255, 255, 0.75)">
+                  {{site_name}}
+                </p>
+                <p style="margin: 0; font-size: 13px">
+                  <a
+                    href="tel:{{site_phone_href}}"
+                    style="color: #ffffff; text-decoration: none; font-weight: 600"
+                    >{{site_phone}}</a
+                  >
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

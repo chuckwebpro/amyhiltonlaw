@@ -9,7 +9,7 @@ legacySlug: 'high-cost-of-the-unknown-with-divorce'
 
 Divorce is one of the hardest things that a person can go through. It touches every part of your life: children, income, assets, retirement, and your home. For many people, the untangling of their marriage is almost unbearable. We always advise our clients that the process is hard but the only way to complete it is through it. There are no short-cuts in divorce and often, there are unpleasant surprises: financial and as it relates to custody. This article will address financial surprises. Custody will be addressed separately.
 
-![](/News/news-images/embeds/Cost-Disclosure.png)
+![](/images/news/Cost-Disclosure.webp)
 
 Family law has very strong disclosure requirement for both parties. Without any requirement for formal discovery, the parties must disclose as much financial information as possible. Failure on either side to comply with these requirements carry stiff penalties that can include losing the entire value of the asset.
 

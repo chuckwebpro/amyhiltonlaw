@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'helping-your-kids-heal-after-a-divorce'
 ---
 
-![Helping your kids heal after a divorce.](/News/news-images/embeds/article-divorce_attorney.jpg)
+![Helping your kids heal after a divorce.](/images/news/article-divorce_attorney.webp)
 
 Here is the second part to my blog on helping your children heal after a divorce.
 

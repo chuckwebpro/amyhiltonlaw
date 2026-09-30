@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
 import { rehypeLegacyNewsImages } from './src/lib/rehypeLegacyNewsImages.ts';
+import { remarkNewsArticleImages } from './src/lib/remarkNewsArticleImages.ts';
 
 const EXCLUDED_FROM_SITEMAP = ['/thank-you/', '/styleguide/'];
 
@@ -24,6 +25,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    remarkPlugins: [remarkNewsArticleImages],
     rehypePlugins: [rehypeLegacyNewsImages],
   },
   vite: {

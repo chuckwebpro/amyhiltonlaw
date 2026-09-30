@@ -9,7 +9,7 @@ legacySlug: 'co-parenting-covid-19-and-halloween-'
 
 Co-parenting-Covid-19 and Halloween
 
-![](/News/news-images/embeds/H2BIG.jpg)
+![](/images/news/H2BIG.webp)
 
 If you’re like me and my client’s with children, the dreaded question of what to do about Halloween is causing you to lose sleep already. Children all over the country associate Halloween with candy, fun, candy, costumes and more candy. A global pandemic, masks and risks of infection are not something they consider. The pandemic has robbed them of so much already, their spring and fall sports, the entire summer, school and their friends, do parents really have what it takes to take away the candiest holiday of all?
 

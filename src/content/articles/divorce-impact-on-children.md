@@ -9,7 +9,7 @@ legacySlug: 'divorce-impact-on-children'
 
 There is no way to underplay the emotional impact that divorce has on children and the important role that both parents play in helping them work through their emotions and fears. I always advise my clients that the sooner they can get back to being friends with the other parent, the sooner their children recover as well. Ideally, I call it best co-parent friends, and when my clients get to the point where this is true, everyone is happier. But this is a process that takes time and sometimes is not possible. If the other parent is abusive, unavailable or for some reason, unwilling to co-parent, then you have to accept the reality of the situation and make the best of it for your children, but that is the rare case.
 
-![](/News/news-images/embeds/Divorce-Impact-Children.jpg)
+![](/images/news/Divorce-Impact-Children.webp)
 
 Here are some steps to help you transition from marriage to single with children and to best co-parent friends.
 

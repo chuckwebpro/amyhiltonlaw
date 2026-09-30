@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'a-divorce-attorney-can-save-you-money'
 ---
 
-![A Divorce Attorney Can Actually Save You Money in the Long Run](/News/news-images/embeds/SaveMoney.jpg)
+![A Divorce Attorney Can Actually Save You Money in the Long Run](/images/news/SaveMoney.webp)
 
 It's never easy going through a divorce. Your best bet is to hire a Certified Family Law Specialist who understands your key issues such as custody, spousal support, and the fair division of assets. Doing it on your own, or with an attorney who doesn’t specialize in family law, can end up costing you more money in the long run.
 

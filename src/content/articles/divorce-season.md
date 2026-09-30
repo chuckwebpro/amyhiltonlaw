@@ -9,7 +9,7 @@ legacySlug: 'divorce-season'
 
 The holidays are all about, cheer, family, and friends with the additions of over-spending and over-eating and they are generally a dark time for divorces. Meaning, it is rare for a new case to be initiated and filed in December. But January is the beginning of the end for many marriages.
 
-![](/News/news-images/embeds/Season-Divorce.png)
+![](/images/news/Season-Divorce.webp)
 
 The holidays are difficult for troubled marriages. But many couples put off discussions of ending their marriages or these decisions for their children (if they have minors) until the Christmas lights are put away. It is too stressful to do holidays and begin a dissolution at the same time.
 

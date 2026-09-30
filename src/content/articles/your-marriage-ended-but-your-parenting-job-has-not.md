@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'you-marriage-ended-but-your-parenting-job-has-not'
 ---
 
-![](/News/news-images/embeds/HFL-NOT.jpg)
+![](/images/news/HFL-NOT.webp)
 
 ### Regardless of the status of your marriage, children need firm yet loving discipline.
 

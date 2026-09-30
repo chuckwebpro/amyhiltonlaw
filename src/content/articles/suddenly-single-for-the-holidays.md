@@ -7,7 +7,7 @@ author: 'Amy Hilton'
 legacySlug: 'suddenly-single-for-the-holidays'
 ---
 
-![Suddenly Single for the Holidays](/News/news-images/embeds/Suddenly-Single.jpg)
+![Suddenly Single for the Holidays](/images/news/Suddenly-Single.webp)
 
 ## Getting through the Holidays after a Divorce
 
