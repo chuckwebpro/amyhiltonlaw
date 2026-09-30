@@ -199,15 +199,17 @@ const bottomNavItems = navigation.primary.map((item) => ({
     transition: 0.25s opacity ease-in-out;
   }
 
-  .navigation img {
-    width: 100%;
-    margin-bottom: 5px;
-    transition: 0.5s width ease-in-out;
-  }
+  @media (min-width: 1070px) {
+    .navigation .primary-nav .top-nav .logo img {
+      width: 100%;
+      margin-bottom: 5px;
+      transition: transform 0.5s ease-in-out;
+    }
 
-  .navigation.scrolling img {
-    width: 50%;
-    transition: 0.5s width ease-in-out;
+    .navigation.scrolling .primary-nav .top-nav .logo img {
+      transform: scale(0.5);
+      transform-origin: top left;
+    }
   }
 
   .navigation .primary-nav {
@@ -220,10 +222,22 @@ const bottomNavItems = navigation.primary.map((item) => ({
   }
 
   @media (min-width: 1070px) {
+    .navigation {
+      /* Lock layout height so scroll shrink effects do not shift page content (CLS). */
+      min-height: var(--site-header-height);
+    }
+
     .navigation .primary-nav {
       display: flex;
       justify-content: center;
       width: 100%;
+    }
+
+    .navigation .primary-nav .top-nav .logo {
+      flex: 0 0 306px;
+      width: 306px;
+      height: 129px;
+      overflow: hidden;
     }
 
     .navigation .mobile-navigation,
@@ -453,7 +467,8 @@ const bottomNavItems = navigation.primary.map((item) => ({
 
     .navigation .mobile-navigation .logo img {
       width: 150px;
-      height: auto;
+      height: 63px;
+      object-fit: contain;
     }
 
     .navigation .mobile-navigation button,
@@ -501,15 +516,14 @@ const bottomNavItems = navigation.primary.map((item) => ({
     }
   }
 
-  /* Reserve space under fixed header */
+  /* Reserve space under fixed header (measured; must match painted header height). */
   :root {
-    --site-header-height: 140px;
+    --site-header-height: 108px;
   }
 
-  @media (max-width: 1069px) {
+  @media (min-width: 1070px) {
     :root {
-      /* Matches measured mobile bar before JS sync (logo + tap targets). */
-      --site-header-height: 108px;
+      --site-header-height: 238px;
     }
   }
 
@@ -523,24 +537,9 @@ const bottomNavItems = navigation.primary.map((item) => ({
   const toggle = document.querySelector('.mobile-menu-toggle');
   const drawer = document.getElementById('mobile-drawer');
 
-  function setHeaderHeight(height: number) {
-    document.documentElement.style.setProperty('--site-header-height', `${height}px`);
-  }
-
   function updateScrollHeader() {
     if (!(nav instanceof HTMLElement)) return;
     nav.classList.toggle('scrolling', window.scrollY !== 0);
-  }
-
-  if (nav instanceof HTMLElement) {
-    new ResizeObserver((entries) => {
-      const entry = entries[entries.length - 1];
-      const height =
-        entry.borderBoxSize?.[0]?.blockSize ??
-        entry.contentBoxSize?.[0]?.blockSize ??
-        entry.contentRect.height;
-      setHeaderHeight(height);
-    }).observe(nav);
   }
 
   updateScrollHeader();
