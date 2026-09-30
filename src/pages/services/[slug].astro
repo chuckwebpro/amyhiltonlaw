@@ -1,8 +1,10 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import InteriorContentPage from '../../components/site/InteriorContentPage.astro';
 import { getLegacySeo } from '../../lib/legacySeo';
+
+type ServiceEntry = CollectionEntry<'services'>;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const entries = await getCollection('services');
@@ -12,7 +14,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
-const { entry } = Astro.props;
+interface Props {
+  entry: ServiceEntry;
+}
+
+const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const legacy = getLegacySeo(entry.data.sitePath);
 const heroTitle = legacy?.h1 ?? entry.id;

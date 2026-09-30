@@ -23,6 +23,6 @@ function getArticleMarkdownProcessor() {
 
 export async function renderArticleBody(body: string, filePath?: string) {
   const processor = await getArticleMarkdownProcessor();
-  const fileURL = filePath ? pathToFileURL(path.resolve(filePath)).href : undefined;
-  return processor.render(body, { fileURL });
+  const fileURL = filePath ? pathToFileURL(path.resolve(filePath)) : undefined;
+  return processor.render(body, fileURL ? { fileURL } : undefined);
 }

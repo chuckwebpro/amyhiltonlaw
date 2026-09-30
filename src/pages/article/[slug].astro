@@ -25,7 +25,8 @@ interface Props {
 }
 
 const { entry, all } = Astro.props;
-const { code: articleHtml } = await renderArticleBody(entry.body, entry.filePath);
+const articleBody = entry.body ?? '';
+const { code: articleHtml } = await renderArticleBody(articleBody, entry.filePath);
 
 const legacy = entry.data.legacySlug ? getLegacyArticleSeo(entry.data.legacySlug) : undefined;
 const pageTitle = legacy?.title ?? entry.data.title;

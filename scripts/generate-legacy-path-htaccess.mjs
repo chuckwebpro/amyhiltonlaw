@@ -35,7 +35,6 @@ const block = [
 
 let htaccess = readFileSync(htaccessPath, 'utf8');
 const begin = '# ----- BEGIN LEGACY default.aspx 301 REDIRECTS';
-const end = '# ----- END LEGACY default.aspx 301 REDIRECTS -----';
 
 if (htaccess.includes(begin)) {
   htaccess = htaccess.replace(
