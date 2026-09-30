@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 
 const shareUrl = Astro.url.href;
@@ -17,7 +18,7 @@ const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIC
             class="social-rail-link"
             aria-label="Visit us on Facebook"
           >
-            <i class="fab fa-facebook-f" aria-hidden="true" />
+            <Icon name="lucide:facebook" class="social-rail-icon" aria-hidden="true" />
           </a>
         </li>
       )
@@ -30,7 +31,7 @@ const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIC
         class="social-rail-link"
         aria-label="Share this page on Facebook"
       >
-        <i class="fas fa-share-alt-square" aria-hidden="true"></i>
+        <Icon name="lucide:share-2" class="social-rail-icon" aria-hidden="true" />
       </a>
     </li>
   </ul>
@@ -60,7 +61,8 @@ const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIC
     color: rgb(2, 32, 51);
   }
 
-  .social-rail-link i {
-    line-height: 1;
+  .social-rail-icon {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 </style>

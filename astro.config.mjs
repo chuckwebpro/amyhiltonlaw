@@ -13,7 +13,11 @@ export default defineConfig({
   site: 'https://amyhiltonlaw.com',
   output: 'static',
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  build: {
+    format: 'directory',
+    /** Inlines site CSS in HTML so LCP is not blocked on a separate stylesheet request. */
+    inlineStylesheets: 'always',
+  },
   integrations: [
     mdx(),
     icon(),
