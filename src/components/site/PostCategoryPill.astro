@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import { newsCategoryForLabel } from '../../data/news-categories';
+
+interface Props {
+  category?: string;
+  class?: string;
+  /** `overlay` sits on the card image; `inline` matches sidebar list styling. */
+  variant?: 'inline' | 'overlay';
+}
+
+const { category = 'Family Law', class: className, variant = 'inline' } = Astro.props;
+const meta = newsCategoryForLabel(category) ?? newsCategoryForLabel('Family Law')!;
+const alpha = meta.tint;
+---
+
+{
+  variant === 'overlay' ? (
+    <span
+      class:list={[
+        'post-category-pill post-category-pill--overlay inline-flex max-w-full items-center gap-1.5 px-2 py-0.5 text-[0.6875rem] leading-tight font-semibold text-white',
+        className,
+      ]}
+      style={`background-color: rgba(0, 0, 255, ${alpha});`}
+    >
+      <Icon name={meta.icon} class="size-3.5 shrink-0" aria-hidden="true" />
+      {category}
+    </span>
+  ) : (
+    <span
+      class:list={[
+        'post-category-pill inline-flex items-center gap-2 text-sm font-semibold text-neutral-700',
+        className,
+      ]}
+    >
+      <span
+        class="inline-flex size-7 shrink-0 items-center justify-center rounded-full text-white"
+        style={`background-color: rgba(0, 0, 255, ${alpha});`}
+        aria-hidden="true"
+      >
+        <Icon name={meta.icon} class="size-3.5" />
+      </span>
+      {category}
+    </span>
+  )
+}

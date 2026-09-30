@@ -1,0 +1,39 @@
+---
+import InteriorLayout from '../../layouts/InteriorLayout.astro';
+import SiteProse from './SiteProse.astro';
+import { getLegacySeo, normalizeLegacyOgImage } from '../../lib/legacySeo';
+import { site } from '../../config/site';
+import type { BreadcrumbEntry } from '../seo/Schema.astro';
+
+interface Props {
+  sitePath: string;
+  heroImage: string;
+  heroImageAlt?: string;
+  breadcrumbs: BreadcrumbEntry[];
+  service?: { name: string; description?: string };
+}
+
+const { sitePath, heroImage, heroImageAlt = '', breadcrumbs, service } = Astro.props;
+
+const legacy = getLegacySeo(sitePath);
+const pageTitle = legacy?.title;
+const pageDescription = legacy?.description;
+const ogImage = normalizeLegacyOgImage(legacy?.ogImage, site.url);
+const heroTitle = legacy?.h1 ?? pageTitle ?? site.name;
+---
+
+<InteriorLayout
+  title={pageTitle}
+  titleExact={Boolean(legacy?.title)}
+  description={pageDescription}
+  image={ogImage}
+  heroTitle={heroTitle}
+  heroImage={heroImage}
+  heroAlt={heroImageAlt}
+  breadcrumbs={breadcrumbs}
+  service={service}
+>
+  <SiteProse>
+    <slot />
+  </SiteProse>
+</InteriorLayout>

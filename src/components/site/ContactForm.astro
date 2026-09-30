@@ -1,0 +1,91 @@
+---
+/**
+ * Quick contact form — posts to /api/submit.php via SiteFormHandler (see ContactBlock).
+ */
+import FormMessage from '../ui/FormMessage.astro';
+import { site } from '../../config/site';
+
+const action = site.formEndpoint || '';
+const thankYou = new URL('/thank-you/', site.url).href;
+---
+
+<form
+  id="quick-contact-form"
+  action={action}
+  method="POST"
+  novalidate
+  data-site-form
+  data-thank-you={thankYou}
+  data-track-source="contact-form"
+>
+  <h2>Quick Contact Form</h2>
+
+  {
+    !action && (
+      <p class="mb-4 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+        No <code>formEndpoint</code> in <code>src/config/site.ts</code> — this form will not submit
+        until one is set.
+      </p>
+    )
+  }
+
+  {action && <input type="hidden" name="form_type" value="contact" />}
+
+  <div class="absolute left-[-9999px]" aria-hidden="true">
+    <label for="_gotcha">Leave this field empty</label>
+    <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <label for="name">
+    <span class="sr-only">Name</span>
+    <span class="required" aria-hidden="true">*</span>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="form-field"
+      placeholder="Name"
+      autocomplete="name"
+    />
+  </label>
+
+  <label for="email">
+    <span class="sr-only">Email</span>
+    <span class="required" aria-hidden="true">*</span>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="form-field"
+      placeholder="Email"
+      autocomplete="email"
+    />
+  </label>
+
+  <label for="phone">
+    <span class="sr-only">Phone</span>
+    <span class="required" aria-hidden="true">*</span>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      required
+      class="form-field"
+      placeholder="Phone"
+      autocomplete="tel"
+    />
+  </label>
+
+  <label for="message">
+    <span class="sr-only">Message</span>
+    <span class="required" aria-hidden="true">*</span>
+    <textarea id="message" name="message" rows={4} required class="form-field" placeholder="Message"
+    ></textarea>
+  </label>
+
+  <FormMessage />
+
+  <input type="submit" value="Send Email" class="border-btn" />
+</form>

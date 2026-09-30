@@ -1,15 +1,16 @@
 {
   "ci": {
     "collect": {
-      "startServerCommand": "npm run preview",
-      "startServerReadyPattern": "localhost:4321",
-      "url": ["http://localhost:4321/", "http://localhost:4321/thank-you/"],
+      "startServerCommand": "npm run preview -- --port 4322",
+      "startServerReadyPattern": "4322",
+      "startServerReadyTimeout": 60000,
+      "url": ["http://localhost:4322/", "http://localhost:4322/thank-you/"],
       "numberOfRuns": 3
     },
     "assert": {
       "assertMatrix": [
         {
-          "matchingUrlPattern": "^http://localhost:4321/$",
+          "matchingUrlPattern": "^http://localhost:4322/$",
           "assertions": {
             "categories:performance": ["error", { "minScore": 0.95 }],
             "categories:accessibility": ["error", { "minScore": 0.95 }],
@@ -18,7 +19,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://localhost:4321/thank-you/$",
+          "matchingUrlPattern": "^http://localhost:4322/thank-you/$",
           "assertions": {
             "categories:performance": ["error", { "minScore": 0.95 }],
             "categories:accessibility": ["error", { "minScore": 0.95 }],

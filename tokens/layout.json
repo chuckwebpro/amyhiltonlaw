@@ -1,6 +1,6 @@
 {
   "container": {
-    "page": { "$value": "1350px", "$type": "dimension" },
+    "page": { "$value": "1200px", "$type": "dimension" },
     "reading": { "$value": "70ch", "$type": "dimension" },
     "narrow": { "$value": "900px", "$type": "dimension" }
   },

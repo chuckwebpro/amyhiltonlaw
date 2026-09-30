@@ -1,0 +1,255 @@
+---
+import type { ArticleEntry } from '../../lib/articles';
+
+interface Props {
+  posts: ArticleEntry[];
+  currentId: string;
+}
+
+const PAGE_SIZE = 5;
+
+const { posts, currentId } = Astro.props;
+const pageCount = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+const currentIndex = posts.findIndex((post) => post.id === currentId);
+const initialPage = currentIndex >= 0 ? Math.floor(currentIndex / PAGE_SIZE) : 0;
+---
+
+{
+  posts.length > 0 && (
+    <aside
+      class="other-posts-sidebar lg:sticky lg:top-[calc(var(--site-header-height,140px)+0.75rem)] lg:max-h-[calc(100dvh-var(--site-header-height,140px)-1rem)] lg:self-start lg:overflow-y-auto"
+      aria-labelledby="other-posts-heading"
+    >
+      <h2 id="other-posts-heading" class="other-posts-heading">
+        <strong>Other</strong> Posts
+      </h2>
+
+      <ul class="other-posts-list" id="other-posts-list">
+        {posts.map((post, index) => (
+          <li
+            class="other-posts-item"
+            data-index={index}
+            hidden={Math.floor(index / PAGE_SIZE) !== initialPage}
+          >
+            <a
+              href={`/article/${post.id}/`}
+              class:list={[
+                'other-posts-link',
+                post.id === currentId && 'other-posts-link--current',
+              ]}
+              aria-current={post.id === currentId ? 'page' : undefined}
+            >
+              {post.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {posts.length > PAGE_SIZE && (
+        <div class="other-posts-pagination">
+          <div class="other-posts-stepper">
+            <button
+              type="button"
+              class="other-posts-step"
+              id="other-posts-prev"
+              disabled={initialPage === 0}
+            >
+              « Previous
+            </button>
+            <button
+              type="button"
+              class="other-posts-step"
+              id="other-posts-next"
+              disabled={initialPage >= pageCount - 1}
+            >
+              Next »
+            </button>
+          </div>
+          <ul class="other-posts-ranges" id="other-posts-ranges">
+            {Array.from({ length: pageCount }, (_, page) => {
+              const start = page * PAGE_SIZE + 1;
+              const end = Math.min((page + 1) * PAGE_SIZE, posts.length);
+              return (
+                <li>
+                  <button
+                    type="button"
+                    class:list={[
+                      'other-posts-range',
+                      page === initialPage && 'other-posts-range--active',
+                    ]}
+                    data-page={page}
+                    aria-current={page === initialPage ? 'true' : undefined}
+                  >
+                    {start}-{end}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </aside>
+  )
+}
+
+<script define:vars={{ pageSize: PAGE_SIZE, initialPage }}>
+  function initOtherPostsPagination() {
+    const list = document.getElementById('other-posts-list');
+    const prevBtn = document.getElementById('other-posts-prev');
+    const nextBtn = document.getElementById('other-posts-next');
+    const ranges = document.getElementById('other-posts-ranges');
+
+    if (!list) return;
+
+    const items = [...list.querySelectorAll('.other-posts-item')];
+    const pageCount = Math.ceil(items.length / pageSize);
+    let page = initialPage;
+
+    function setPage(nextPage) {
+      page = Math.max(0, Math.min(nextPage, pageCount - 1));
+      items.forEach((item, index) => {
+        item.hidden = Math.floor(index / pageSize) !== page;
+      });
+
+      if (prevBtn instanceof HTMLButtonElement) prevBtn.disabled = page === 0;
+      if (nextBtn instanceof HTMLButtonElement) nextBtn.disabled = page >= pageCount - 1;
+
+      ranges?.querySelectorAll('.other-posts-range').forEach((btn) => {
+        if (!(btn instanceof HTMLButtonElement)) return;
+        const btnPage = Number(btn.dataset.page ?? 0);
+        const active = btnPage === page;
+        btn.classList.toggle('other-posts-range--active', active);
+        btn.toggleAttribute('aria-current', active);
+      });
+    }
+
+    prevBtn?.addEventListener('click', () => setPage(page - 1));
+    nextBtn?.addEventListener('click', () => setPage(page + 1));
+
+    ranges?.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement) || target.dataset.page === undefined) return;
+      setPage(Number(target.dataset.page));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initOtherPostsPagination);
+  } else {
+    initOtherPostsPagination();
+  }
+</script>
+
+<style>
+  .other-posts-sidebar {
+    border: 1px solid var(--color-line-base);
+    background-color: var(--color-surface-base);
+    padding: 0.75rem 0.875rem 1rem;
+  }
+
+  .other-posts-heading {
+    margin: 0;
+    padding: 0.25rem 0 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-neutral-700);
+  }
+
+  .other-posts-heading strong {
+    font-weight: 700;
+  }
+
+  .other-posts-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .other-posts-item + .other-posts-item {
+    margin-top: 0.35rem;
+  }
+
+  .other-posts-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 1.45;
+    color: var(--color-brand-600);
+    text-decoration: none;
+  }
+
+  .other-posts-link:hover {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+  }
+
+  .other-posts-link--current {
+    font-weight: 600;
+    color: var(--color-brand-700);
+  }
+
+  .other-posts-pagination {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-line-base);
+  }
+
+  .other-posts-stepper {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .other-posts-step {
+    border: 0;
+    background: transparent;
+    padding: 0.25rem 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-neutral-700);
+    cursor: pointer;
+  }
+
+  .other-posts-step:hover:not(:disabled) {
+    color: var(--color-brand-700);
+  }
+
+  .other-posts-step:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .other-posts-ranges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .other-posts-range {
+    border: 1px solid var(--color-line-base);
+    background-color: var(--color-neutral-50);
+    padding: 0.2rem 0.45rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-neutral-700);
+    cursor: pointer;
+  }
+
+  .other-posts-range:hover {
+    border-color: var(--color-neutral-400);
+  }
+
+  .other-posts-range--active {
+    border-color: var(--color-brand-600);
+    background-color: var(--color-brand-50);
+    color: var(--color-brand-700);
+    font-weight: 600;
+  }
+</style>

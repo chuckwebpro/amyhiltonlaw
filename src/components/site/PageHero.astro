@@ -1,0 +1,81 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import SiteContainer from './SiteContainer.astro';
+import PublicPicture from './PublicPicture.astro';
+import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS, publicWebpPath } from '../../lib/publicImages';
+
+interface Props {
+  title: string;
+  /** Remote URL or imported image metadata. */
+  image: string | ImageMetadata;
+  alt?: string;
+}
+
+const { title, image, alt = '' } = Astro.props;
+
+const isRemote = typeof image === 'string';
+const isLocalPublic = isRemote && image.startsWith('/images/');
+---
+
+<section class="page-hero flex w-full justify-center">
+  <SiteContainer class="p-0">
+    <div class="page-hero-media relative max-h-[420px] w-full overflow-hidden lg:max-h-[520px]">
+      {
+        isLocalPublic ? (
+          <PublicPicture
+            src={publicWebpPath(image)}
+            alt={alt}
+            widths={[...HERO_IMAGE_WIDTHS]}
+            sizes={HERO_IMAGE_SIZES}
+            class="h-full max-h-[520px] w-full object-cover object-center"
+          />
+        ) : isRemote ? (
+          <img
+            src={image}
+            alt={alt}
+            class="h-full max-h-[520px] w-full object-cover object-center"
+          />
+        ) : (
+          <Image
+            src={image}
+            alt={alt}
+            widths={[550, 800, 1000, 1200, 1500]}
+            sizes={HERO_IMAGE_SIZES}
+            class="h-full max-h-[520px] w-full object-cover object-center"
+          />
+        )
+      }
+    </div>
+    <div class="page-hero-bar">
+      <h1>{title}</h1>
+    </div>
+  </SiteContainer>
+</section>
+
+<style is:global>
+  /* Legacy title band — /uc/title-hero/css/title-hero2.css (.title-bar h1) */
+  .page-hero-bar {
+    text-align: left;
+    color: var(--color-neutral-0);
+  }
+
+  .page-hero-bar h1 {
+    margin: 0;
+    padding: 10px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.2;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 575px) {
+    .page-hero-bar h1 {
+      font-size: 2.5em;
+    }
+  }
+</style>

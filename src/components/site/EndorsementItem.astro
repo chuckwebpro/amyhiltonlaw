@@ -1,0 +1,30 @@
+---
+import type { Endorsement } from '../../data/endorsements';
+
+interface Props {
+  entry: Endorsement;
+}
+
+const { entry } = Astro.props;
+const [firstParagraph, ...restParagraphs] = entry.paragraphs;
+---
+
+{
+  firstParagraph !== undefined && (
+    <p>
+      {entry.rating && (
+        <strong>
+          <span>{entry.rating}</span>
+        </strong>
+      )}
+      <strong>
+        <span>{entry.relationship}</span>
+      </strong>
+      <strong>
+        <span class="date">{entry.date}</span>
+      </strong>
+      {firstParagraph}
+    </p>
+  )
+}
+{restParagraphs.map((text) => <p>{text}</p>)}

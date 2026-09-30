@@ -1,40 +1,45 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/ui/Section.astro';
-import Container from '../components/ui/Container.astro';
-import Heading from '../components/ui/Heading.astro';
-import Button from '../components/ui/Button.astro';
-import { navigation } from '../config/navigation';
+import InteriorLayout from '../layouts/InteriorLayout.astro';
+import SiteButton from '../components/site/SiteButton.astro';
 import { site } from '../config/site';
+import '../styles/hfl-status.css';
+
+const heroImage = '/images/int-banner/interior_banner.webp';
+
+const helpfulLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'News', href: '/news/' },
+  { label: 'Endorsements', href: '/endorsements/' },
+  { label: 'Contact', href: '/contact/' },
+];
 ---
 
-<BaseLayout title="Page not found" noindex>
-  <Section background="base" spacing="lg">
-    <Container align="center" gap="md">
-      <p class="text-ink-muted text-sm font-semibold tracking-wide uppercase">Error 404</p>
-      <Heading level={1} size="xl">We couldn&rsquo;t find that page</Heading>
-      <p class="max-w-reading text-ink-muted">
-        The link may be out of date, or the page may have moved. Try one of these instead.
-      </p>
-
-      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-        {
-          navigation.primary.map((item) => (
-            <li>
-              <a href={item.href ?? '/'} class="text-ink-brand inline-flex min-h-11 items-center">
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-
-      <div class="flex flex-wrap justify-center gap-3">
-        <Button href="/">Back to home</Button>
-        <Button href={`tel:${site.business.phoneHref}`} variant="secondary">
-          Call {site.business.phone}
-        </Button>
-      </div>
-    </Container>
-  </Section>
-</BaseLayout>
+<InteriorLayout
+  title="Page Not Found"
+  description="The page you requested is not available on Hilton Family Law."
+  noindex
+  heroTitle="Page Not Found"
+  heroImage={heroImage}
+  heroAlt="Hilton Family Law"
+  contentClass="status-page"
+>
+  <h2>We couldn&rsquo;t find that page</h2>
+  <p>
+    The link may be out of date, or the page may have moved. Please try one of these pages, or call
+    the office at <a class="status-page__phone" href={`tel:${site.business.phoneHref}`}
+      >{site.business.phone}</a
+    >.
+  </p>
+  <ul class="status-page__links">
+    {
+      helpfulLinks.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="status-page__actions">
+    <SiteButton href="/">Back to Home</SiteButton>
+  </div>
+</InteriorLayout>

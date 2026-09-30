@@ -1,0 +1,180 @@
+/* Legacy /contact/ — interior.all.min.css `.contact` */
+
+.contact-page {
+  background-color: var(--color-surface-base);
+  padding-block: 50px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contact__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.contact__inner > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  margin: 0 0 100px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.contact__inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact__inner ul p {
+  margin: 0 0 10px;
+  color: var(--color-neutral-950);
+  line-height: 1.8;
+}
+
+.contact__inner p strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact__inner a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact__inner a:hover {
+  text-decoration: underline;
+}
+
+.contact__inner form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 0 100px;
+}
+
+.contact form h2 {
+  margin: 20px 0;
+  font-family: var(--font-sans);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-neutral-500);
+}
+
+.contact form label {
+  position: relative;
+  margin: 5px 0;
+}
+
+.contact form label .required {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 2;
+  display: block;
+  text-align: right;
+  color: var(--color-brand-500);
+}
+
+.contact form input,
+.contact form textarea {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--color-line-base);
+  border-radius: 0;
+  background-color: var(--color-surface-base);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-neutral-900);
+}
+
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-neutral-900);
+}
+
+.contact form input[type='submit'] {
+  width: 200px;
+  margin: 25px auto;
+  padding: 25px;
+  border: 1px solid var(--color-neutral-900);
+  background-color: var(--color-neutral-0);
+  color: #000;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.contact form input[type='submit']:hover {
+  color: var(--color-neutral-0);
+  background-color: var(--color-neutral-900);
+}
+
+.contact form .form-message {
+  margin-top: 0.5rem;
+  border-radius: 0;
+}
+
+@media (min-width: 550px) {
+  .contact__inner > ul {
+    text-align: left;
+  }
+
+  .contact__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+
+  .contact__inner form {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 800px) {
+  .contact__inner form {
+    max-width: 400px;
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 1070px) {
+  .contact__inner {
+    justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .contact__inner > ul {
+    margin-bottom: 100px;
+  }
+
+  .contact__inner form {
+    max-width: 500px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+  }
+}

@@ -1,0 +1,272 @@
+---
+import SiteButton from '../SiteButton.astro';
+import SiteContainer from '../SiteContainer.astro';
+import PublicPicture from '../PublicPicture.astro';
+
+/** Same six slides as amyhiltonlaw.com home `.service` carousel (order + colors preserved). */
+const cards = [
+  {
+    title: 'Child Custody',
+    body: "Every parent wants to ensure that their children's best interests are the focus of the parenting plan. Amy has experience in drafting parenting plans based on the needs of the child and not the parent.",
+    href: '/services/child-custody/',
+    alt: 'Child Custody',
+    tone: 'brand' as const,
+  },
+  {
+    title: 'Child Support',
+    body: "Child Support is set by the State and based on the amount of time spent with the parents and their incomes. Amy can calculate support based on the State's guidelines.",
+    href: '/services/child-and-spousal-support/',
+    alt: 'Child Support',
+    tone: 'muted' as const,
+  },
+  {
+    title: 'Spousal Support (Alimony)',
+    body: 'The lower earning spousal is typically entitled to spousal support. Amy can provide you with an estimate for the amount and duration of the payments.',
+    href: '/services/child-and-spousal-support/',
+    alt: 'Spousal Support (Alimony)',
+    tone: 'brand' as const,
+  },
+  {
+    title: 'Property Division',
+    body: 'This is a complicated area of Family Law. Amy knows how to characterize assets and the proper way to divide them.',
+    href: '/services/property-division/',
+    alt: 'Property Division',
+    tone: 'muted' as const,
+  },
+  {
+    title: 'Domestic Violence',
+    body: 'Too few women understand the breadth and depth of abuse. Amy has the experience and contacts to help victims get back on their feet and to defend against fraudulent claims.',
+    href: '/services/domestic-violence/',
+    alt: 'Domestic Violence',
+    tone: 'brand' as const,
+  },
+  {
+    title: 'Enforcement',
+    body: 'Any violation of a Court Order is technically a contempt. Amy has experience with contempt charges and has used it modify orders for repeat offenders.',
+    href: '/services/enforcement/',
+    alt: 'Enforcement',
+    tone: 'muted' as const,
+  },
+];
+---
+
+<section class="service">
+  <SiteContainer>
+    <ul class="service-track" data-service-track>
+      {
+        cards.map((card) => (
+          <li class="service-slide">
+            <div
+              class:list={['service-slide-panel', card.tone === 'brand' ? 'is-brand' : 'is-muted']}
+            >
+              <PublicPicture
+                src="/images/icon_umbrella.webp"
+                alt={card.alt}
+                widths={[73, 146]}
+                sizes="64px"
+                width={64}
+                height={64}
+                loading="lazy"
+              />
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <SiteButton href={card.href} class="service-card-btn">
+                Read more<span class="sr-only"> about {card.title}</span>
+              </SiteButton>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </SiteContainer>
+</section>
+
+<style is:global>
+  .service {
+    display: flex;
+    justify-content: center;
+  }
+
+  .service .contained {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .service ul.service-track {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    transform: translateX(0);
+    will-change: transform;
+  }
+
+  .service ul.service-track.is-animating {
+    transition: transform 0.75s ease-in-out;
+  }
+
+  .service ul.service-track.is-animating .service-slide.is-leaving {
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+  }
+
+  .service-slide {
+    /* 100% avoids 100vw horizontal scroll from scrollbar width on mobile */
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 26rem;
+    color: #fff;
+    opacity: 1;
+  }
+
+  @media (min-width: 550px) {
+    .service-slide {
+      flex: 0 0 275px;
+      width: 275px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .service-slide {
+      flex: 0 0 400px;
+      width: 400px;
+      min-height: 28rem;
+    }
+  }
+
+  @media (min-width: 1070px) {
+    .service-slide {
+      flex: 0 0 335px;
+      width: 335px;
+    }
+  }
+
+  @media (min-width: 1270px) {
+    .service-slide {
+      flex: 0 0 400px;
+      width: 400px;
+    }
+  }
+
+  @media (min-width: 1570px) {
+    .service-slide {
+      flex: 0 0 500px;
+      width: 500px;
+    }
+  }
+
+  .service-slide-panel {
+    box-sizing: border-box;
+    height: 100%;
+    min-height: inherit;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .service-slide-panel.is-brand {
+    background-color: #c00;
+  }
+
+  .service-slide-panel.is-muted {
+    background-color: #999;
+  }
+
+  .service-slide-panel img {
+    margin: auto;
+    flex-shrink: 0;
+  }
+
+  .service-slide-panel p {
+    margin: 15px 0 25px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    flex: 1 1 auto;
+  }
+
+  .service-slide-panel h3 {
+    margin: 15px 0 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .service .service-card-btn {
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+</style>
+
+<script>
+  const INTERVAL_MS = 5000;
+  const ANIM_MS = 750;
+
+  function prefersReducedMotion(): boolean {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function slideStepPx(ul: HTMLUListElement): number {
+    const first = ul.querySelector<HTMLLIElement>(':scope > .service-slide');
+    return first?.offsetWidth ?? 0;
+  }
+
+  function nextService() {
+    const ul = document.querySelector<HTMLUListElement>('.service .contained > ul.service-track');
+    const first = ul?.querySelector<HTMLLIElement>(':scope > .service-slide:first-child');
+    if (!ul || !first) return;
+
+    const step = slideStepPx(ul);
+    if (step <= 0) {
+      window.setTimeout(nextService, INTERVAL_MS);
+      return;
+    }
+
+    first.classList.add('is-leaving');
+    ul.classList.add('is-animating');
+    ul.style.transform = `translateX(-${step}px)`;
+
+    let finished = false;
+    const finishAdvance = () => {
+      if (finished) return;
+      finished = true;
+      ul.removeEventListener('transitionend', onTransitionEnd);
+      ul.classList.remove('is-animating');
+      first.classList.remove('is-leaving');
+      ul.appendChild(first);
+
+      ul.style.transition = 'none';
+      ul.style.transform = 'translateX(0)';
+      void ul.offsetWidth;
+      ul.style.removeProperty('transition');
+      ul.style.removeProperty('transform');
+    };
+
+    const onTransitionEnd = (event: TransitionEvent) => {
+      if (event.target !== ul || event.propertyName !== 'transform') return;
+      finishAdvance();
+    };
+
+    ul.addEventListener('transitionend', onTransitionEnd);
+    window.setTimeout(finishAdvance, ANIM_MS + 50);
+
+    window.setTimeout(nextService, INTERVAL_MS);
+  }
+
+  function initServiceCarousel() {
+    const track = document.querySelector<HTMLUListElement>('.service .service-track');
+    if (!track || track.dataset.carouselInit === 'true') return;
+    if (prefersReducedMotion()) return;
+
+    track.dataset.carouselInit = 'true';
+    window.setTimeout(nextService, INTERVAL_MS);
+  }
+
+  initServiceCarousel();
+  document.addEventListener('astro:page-load', initServiceCarousel);
+</script>

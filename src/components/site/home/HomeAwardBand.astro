@@ -1,0 +1,39 @@
+---
+import SiteButton from '../SiteButton.astro';
+import SiteContainer from '../SiteContainer.astro';
+import PublicPicture from '../PublicPicture.astro';
+---
+
+<section class="home-award-band w-full bg-neutral-50 py-4">
+  <SiteContainer
+    class="flex flex-col items-center gap-8 bg-neutral-500 p-0 lg:flex-row lg:items-center lg:justify-between"
+  >
+    <div
+      class="flex flex-1 flex-col items-center gap-6 px-8 py-12 text-center lg:items-start lg:px-12 lg:py-14 lg:text-left"
+    >
+      <h2
+        class="text-neutral-0 m-0 font-sans text-2xl leading-snug font-normal text-balance lg:text-[2.15rem]"
+      >
+        Recipient of the American Institute of Family Law Attorneys 10 Best Law Firm Award
+      </h2>
+      <p
+        class="text-neutral-0 m-0 max-w-prose font-sans text-lg leading-relaxed font-semibold tracking-wide"
+      >
+        Hilton Family Law Offices received this award from 2017-21, and again in 2023.
+        <br class="hidden sm:inline" />
+        We have always taken pride in providing excellent client satisfaction.
+      </p>
+      <SiteButton href="/contact/" class="border-neutral-900">Contact Us Now</SiteButton>
+    </div>
+    <PublicPicture
+      src="/images/image_2024_01_24T16_52_22_829Z.webp"
+      alt="10 Best Law Firm Client Satisfaction Award from the American Institute of Family Law Attorneys"
+      widths={[370, 740]}
+      sizes="(min-width: 1024px) 370px, min(370px, 100vw)"
+      width={370}
+      height={370}
+      class="mx-auto w-full max-w-[370px] shrink-0 p-4 lg:mx-0 lg:p-4"
+      loading="lazy"
+    />
+  </SiteContainer>
+</section>

@@ -1,7 +1,5 @@
 /**
- * One nav tree, rendered two ways. `Header` reads it for the simple desktop
- * nav today; `MegaMenu` and `MobileNav` read the same tree in Phase 4, so the
- * upgrade is additive rather than a rewrite.
+ * One nav tree for Hilton Family Law — header, footer, and practice promo band.
  */
 
 export interface NavLink {
@@ -10,6 +8,8 @@ export interface NavLink {
   description?: string;
   /** astro-icon name, e.g. 'lucide:wrench'. */
   icon?: string;
+  /** Open in new tab (external). */
+  external?: boolean;
 }
 
 export interface MegaColumn {
@@ -44,98 +44,99 @@ export interface NavigationConfig {
   primary: NavItem[];
   /** Right-hand call to action in the header. */
   cta?: { label: string; href: string };
+  /** Recurring “Areas of Practice” umbrella band (home + interior). */
+  practicePromo: NavLink[];
   footer: { heading: string; links: NavLink[] }[];
   legal: NavLink[];
 }
+
+const services: NavLink[] = [
+  { label: 'Child Custody', href: '/services/child-custody/' },
+  {
+    label: 'Child Support and Spousal Support',
+    href: '/services/child-and-spousal-support/',
+  },
+  { label: 'Property Division', href: '/services/property-division/' },
+  { label: 'Retirement', href: '/services/retirement/' },
+  { label: 'Domestic Violence', href: '/services/domestic-violence/' },
+  { label: 'Modifications', href: '/services/modifications/' },
+  { label: 'Enforcement', href: '/services/enforcement/' },
+  { label: 'Set Asides', href: '/services/set-asides/' },
+];
 
 export const navigation: NavigationConfig = {
   primary: [
     { label: 'Home', href: '/' },
     {
-      label: 'Services',
-      href: '/services/',
-      panel: {
-        kind: 'mega',
-        columns: [
-          {
-            heading: 'Residential',
-            links: [
-              {
-                label: 'Repairs & Maintenance',
-                href: '/services/repairs/',
-                description: 'Fast turnaround on everyday problems.',
-                icon: 'lucide:wrench',
-              },
-              {
-                label: 'Installations',
-                href: '/services/installations/',
-                description: 'New systems, fitted and tested.',
-                icon: 'lucide:hammer',
-              },
-            ],
-          },
-          {
-            heading: 'Commercial',
-            links: [
-              {
-                label: 'Service Contracts',
-                href: '/services/contracts/',
-                description: 'Scheduled upkeep with priority response.',
-                icon: 'lucide:clipboard-check',
-              },
-              {
-                label: 'Emergency Callout',
-                href: '/services/emergency/',
-                description: 'Around-the-clock cover.',
-                icon: 'lucide:siren',
-              },
-            ],
-          },
-        ],
-        featured: {
-          title: 'Not sure what you need?',
-          body: 'Tell us what is going on and we will point you at the right service.',
-          href: '/contact/',
-          cta: 'Talk to us',
-        },
-      },
-    },
-    {
-      label: 'About',
+      label: 'Our Lawyers',
       panel: {
         kind: 'links',
         links: [
-          { label: 'Our Story', href: '/about/' },
-          { label: 'The Team', href: '/about/team/' },
-          { label: 'Service Area', href: '/about/service-area/' },
+          { label: 'Amy Hilton', href: '/our-lawyers/amy-hilton/' },
+          { label: 'Hemma Gill', href: '/our-lawyers/hemma-gill/' },
         ],
       },
     },
+    {
+      label: 'Areas Of Practice',
+      panel: {
+        kind: 'links',
+        links: services,
+      },
+    },
+    { label: 'News', href: '/news/' },
+    { label: 'Endorsements', href: '/endorsements/' },
     { label: 'Contact', href: '/contact/' },
   ],
 
-  cta: { label: 'Request a Quote', href: '/contact/' },
+  cta: { label: 'Contact', href: '/contact/' },
+
+  practicePromo: [
+    { label: 'Custody and Visitation', href: '/services/child-custody/' },
+    {
+      label: 'Child Support and Paternity',
+      href: '/services/child-and-spousal-support/',
+    },
+    { label: 'Property Division', href: '/services/property-division/' },
+    { label: 'Domestic Violence', href: '/services/domestic-violence/' },
+  ],
 
   footer: [
     {
-      heading: 'Services',
+      heading: 'Main Menu',
       links: [
-        { label: 'Repairs & Maintenance', href: '/services/repairs/' },
-        { label: 'Installations', href: '/services/installations/' },
-        { label: 'Service Contracts', href: '/services/contracts/' },
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/our-lawyers/amy-hilton/' },
+        { label: 'News', href: '/news/' },
+        { label: 'Contact', href: '/contact/' },
+        { label: 'Endorsements', href: '/endorsements/' },
       ],
     },
     {
-      heading: 'Company',
+      heading: 'Areas of Practice',
       links: [
-        { label: 'About', href: '/about/' },
-        { label: 'Contact', href: '/contact/' },
+        { label: 'Child Custody and Visitation', href: '/services/child-custody/' },
+        {
+          label: 'Child Support and Paternity',
+          href: '/services/child-and-spousal-support/',
+        },
+        { label: 'Domestic Violence', href: '/services/domestic-violence/' },
+        { label: 'Property Division', href: '/services/property-division/' },
+      ],
+    },
+    {
+      heading: '',
+      links: [
+        { label: 'Retirement', href: '/services/retirement/' },
+        {
+          label: 'Modifications of Child Custody',
+          href: '/services/modifications/',
+        },
+        { label: 'Enforcement of agreements', href: '/services/enforcement/' },
+        { label: 'Set Asides', href: '/services/set-asides/' },
       ],
     },
   ],
 
-  legal: [
-    { label: 'Privacy Policy', href: '/privacy/' },
-    { label: 'Terms of Service', href: '/terms/' },
-  ],
+  legal: [],
 };

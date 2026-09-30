@@ -1,5 +1,4 @@
 ---
-import '@fontsource-variable/inter';
 import '../styles/global.css';
 
 import SEO from '../components/seo/SEO.astro';
@@ -7,10 +6,9 @@ import Schema, { type BreadcrumbEntry, type FaqEntry } from '../components/seo/S
 import Analytics from '../components/analytics/Analytics.astro';
 import LogDash from '../components/analytics/LogDash.astro';
 import CookieConsent from '../components/analytics/CookieConsent.astro';
-import Header, { type HeaderSticky } from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
 import RecaptchaV3 from '../components/forms/RecaptchaV3.astro';
 import SiteFormHandler from '../components/forms/SiteFormHandler.astro';
+import SiteLayout from './SiteLayout.astro';
 import { site, hasAnalytics } from '../config/site';
 
 interface Props {
@@ -26,10 +24,9 @@ interface Props {
   breadcrumbs?: BreadcrumbEntry[];
   faqs?: FaqEntry[];
   service?: { name: string; description?: string };
-  sticky?: HeaderSticky;
 }
 
-const { breadcrumbs, faqs, service, sticky = 'sticky', ...seo } = Astro.props;
+const { breadcrumbs, faqs, service, ...seo } = Astro.props;
 ---
 
 <!doctype html>
@@ -37,12 +34,31 @@ const { breadcrumbs, faqs, service, sticky = 'sticky', ...seo } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Switches the nav from its CSS-only fallback to scripted control. Inline
-         and early so the mega panel never flashes open during load. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Legacy header icons (phone, envelope, Facebook) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
@@ -63,13 +79,12 @@ const { breadcrumbs, faqs, service, sticky = 'sticky', ...seo } = Astro.props;
       Skip to content
     </a>
 
-    <Header sticky={sticky} />
+    <SiteLayout>
+      <main id="main" class="flex-1">
+        <slot />
+      </main>
+    </SiteLayout>
 
-    <main id="main" class="flex-1">
-      <slot />
-    </main>
-
-    <Footer />
     <RecaptchaV3 />
     <SiteFormHandler />
     {site.consent === 'banner' && <CookieConsent />}

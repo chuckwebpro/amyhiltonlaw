@@ -1,19 +1,19 @@
 {
   "font": {
     "sans": {
-      "$value": "'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+      "$value": "'Open Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
       "$type": "fontFamily"
     },
     "heading": {
-      "$value": "'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+      "$value": "Georgia, 'Times New Roman', ui-serif, serif",
       "$type": "fontFamily"
     }
   },
   "text": {
     "xs": { "$value": "0.8125rem", "$type": "dimension" },
     "sm": { "$value": "0.9375rem", "$type": "dimension" },
-    "base": { "$value": "1.0625rem", "$type": "dimension" },
-    "lg": { "$value": "1.1875rem", "$type": "dimension" },
+    "base": { "$value": "1rem", "$type": "dimension" },
+    "lg": { "$value": "1.125rem", "$type": "dimension" },
     "xl": { "$value": "clamp(1.25rem, 0.25vw + 1.19rem, 1.375rem)", "$type": "dimension" },
     "2xl": { "$value": "clamp(1.5rem, 0.6vw + 1.35rem, 1.875rem)", "$type": "dimension" },
     "3xl": { "$value": "clamp(1.875rem, 1.2vw + 1.58rem, 2.5rem)", "$type": "dimension" },
@@ -23,7 +23,8 @@
   "leading": {
     "tight": { "$value": "1.15", "$type": "number" },
     "snug": { "$value": "1.35", "$type": "number" },
-    "normal": { "$value": "1.6", "$type": "number" }
+    "normal": { "$value": "1.6", "$type": "number" },
+    "relaxed": { "$value": "1.8", "$type": "number" }
   },
   "tracking": {
     "tight": { "$value": "-0.02em", "$type": "dimension" },

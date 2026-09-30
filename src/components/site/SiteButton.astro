@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = {
+  href?: string;
+  class?: string;
+} & Omit<HTMLAttributes<'a'>, 'class'> &
+  Omit<HTMLAttributes<'button'>, 'class'>;
+
+const { href, class: className, ...rest } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  class:list={[
+    'site-btn inline-flex min-h-11 min-w-[150px] items-center justify-center border px-6 py-3',
+    'bg-neutral-0 border-neutral-900 font-bold text-neutral-900 uppercase no-underline',
+    'hover:text-neutral-0 transition-colors duration-150 hover:bg-neutral-900',
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>

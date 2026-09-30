@@ -7,23 +7,31 @@
     "node": ">=22"
   },
   "scripts": {
-    "predev": "node scripts/build-tokens.mjs",
+    "predev": "node scripts/build-tokens.mjs && node scripts/optimize-images.mjs",
     "dev": "astro dev",
-    "prebuild": "node scripts/build-tokens.mjs",
+    "prebuild": "node scripts/build-tokens.mjs && node scripts/optimize-images.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "preverify": "node scripts/build-tokens.mjs",
     "verify": "astro check && prettier --check .",
     "format": "prettier --write .",
     "audit:lh": "lhci autorun",
-    "audit:a11y": "start-server-and-test preview http://localhost:4321 \"pa11y-ci\"",
+    "audit:a11y": "start-server-and-test \"astro preview --port 4322\" http://localhost:4322 \"pa11y-ci\"",
     "audit": "npm run audit:lh && npm run audit:a11y",
     "php:check": "node scripts/php-check.mjs",
     "php:install": "node scripts/php-install.mjs",
     "php:serve": "node scripts/php-serve.mjs",
-    "php:dev": "npm run build && npm run php:install && npm run php:serve"
+    "php:dev": "npm run build && npm run php:install && npm run php:serve",
+    "migrate:content": "node scripts/migrate-content.mjs",
+    "migrate:articles": "node scripts/migrate-articles.mjs",
+    "migrate:htaccess": "node scripts/generate-article-htaccess.mjs",
+    "migrate:all": "npm run migrate:content && npm run migrate:articles && npm run migrate:interior && npm run migrate:htaccess && npm run migrate:legacy-paths",
+    "migrate:legacy-paths": "node scripts/generate-legacy-path-htaccess.mjs",
+    "migrate:interior": "node scripts/migrate-interior-pages.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/mdx": "^8.0.2",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/inter": "^5.3.0",
@@ -40,6 +48,7 @@
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.34.5",
     "start-server-and-test": "^2.1.5",
     "style-dictionary": "^4.4.0",
     "typescript": "^5.9.3"

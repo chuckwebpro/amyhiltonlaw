@@ -1,0 +1,126 @@
+---
+import Prose from '../ui/Prose.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'div'>, 'class'> {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<Prose class:list={['site-prose w-full max-w-none', className]} {...rest}>
+  <slot />
+</Prose>
+
+<style>
+  /* Legacy interior pages fill `.contained`; do not use the 70ch reading measure. */
+  .site-prose {
+    width: 100%;
+    max-width: none;
+  }
+
+  .site-prose :global(h1),
+  .site-prose :global(h2),
+  .site-prose :global(h3) {
+    font-family: var(--font-sans);
+    color: var(--color-neutral-500);
+    font-weight: 600;
+  }
+
+  .site-prose :global(h2) {
+    font-size: 1.5em;
+    margin-block: 1.25em 0.75em;
+  }
+
+  .site-prose :global(p) {
+    color: var(--color-neutral-950);
+    line-height: 1.8;
+  }
+
+  /* Legacy: gray list markers via `ul` color; dark copy via `ul p`. */
+  .site-prose :global(ul),
+  .site-prose :global(ol) {
+    color: var(--color-neutral-500);
+    margin-inline-start: 1.25rem;
+    margin-block-end: 1.25rem;
+  }
+
+  .site-prose :global(li) {
+    line-height: 1.8;
+  }
+
+  .site-prose :global(li)::marker {
+    color: var(--color-neutral-500);
+  }
+
+  .site-prose :global(ul p),
+  .site-prose :global(ol p) {
+    color: var(--color-neutral-950);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .site-prose :global(ul > li:not(:has(p))),
+  .site-prose :global(ol > li:not(:has(p))) {
+    color: var(--color-neutral-950);
+  }
+
+  .site-prose :global(a) {
+    color: var(--color-neutral-900);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .site-prose :global(a:hover) {
+    color: var(--color-brand-600);
+  }
+
+  .site-prose :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-block: 1.25rem;
+  }
+
+  .site-prose :global(.lawyer-bio-columns) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 0 2rem;
+    align-items: start;
+    margin-block-start: 1.1em;
+  }
+
+  @media (max-width: 767px) {
+    .site-prose :global(.lawyer-bio-columns) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .site-prose :global(.lawyer-bio-badge) {
+      justify-self: center;
+      width: min(300px, 100%);
+    }
+  }
+
+  .site-prose :global(.lawyer-bio-badge) {
+    width: 300px;
+    max-width: 100%;
+  }
+
+  .site-prose :global(.lawyer-bio-copy > * + *) {
+    margin-block-start: 1.1em;
+  }
+
+  .site-prose :global(.lawyer-cert-badge) {
+    display: block;
+  }
+
+  .site-prose :global(.lawyer-cert-badge img) {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+</style>

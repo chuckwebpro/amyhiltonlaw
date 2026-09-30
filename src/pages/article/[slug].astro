@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import OtherPostsSidebar from '../../components/site/OtherPostsSidebar.astro';
+import { getPublished, sidebarPosts, type ArticleEntry } from '../../lib/articles';
+import { getArticleCardImages } from '../../lib/articleCard';
+import { getLegacyArticleSeo } from '../../lib/legacySeo';
+
+/** Shared news/article interior banner — per-post art is in markdown body only. */
+const ARTICLE_HERO_IMAGE = '/images/int-banner/int_familylawclinic.webp';
+const ARTICLE_HERO_ALT = 'Mother and daughter smiling together outdoors';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const entries = await getPublished();
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, all: entries },
+  }));
+};
+
+interface Props {
+  entry: ArticleEntry;
+  all: ArticleEntry[];
+}
+
+const { entry, all } = Astro.props;
+const { Content } = await render(entry);
+
+const legacy = entry.data.legacySlug ? getLegacyArticleSeo(entry.data.legacySlug) : undefined;
+const pageTitle = legacy?.title ?? entry.data.title;
+const pageDescription =
+  legacy?.description && legacy.description.length > entry.data.title.length + 5
+    ? legacy.description
+    : entry.data.description;
+const { src: ogImage } = getArticleCardImages(entry);
+const heroTitle = legacy?.h1 ?? entry.data.title;
+const otherPosts = sidebarPosts(all);
+---
+
+<ArticleLayout
+  title={pageTitle}
+  titleExact={Boolean(legacy?.title)}
+  description={pageDescription}
+  image={ogImage}
+  heroTitle={heroTitle}
+  heroImage={ARTICLE_HERO_IMAGE}
+  heroAlt={ARTICLE_HERO_ALT}
+  publishedTime={entry.data.publishDate.toISOString()}
+  modifiedTime={entry.data.updatedDate?.toISOString()}
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'News', href: '/news/' },
+    { name: entry.data.title, href: `/article/${entry.id}/` },
+  ]}
+>
+  <Content />
+  <OtherPostsSidebar slot="sidebar" posts={otherPosts} currentId={entry.id} />
+</ArticleLayout>

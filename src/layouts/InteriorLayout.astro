@@ -1,0 +1,37 @@
+---
+import type { ImageMetadata } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/site/PageHero.astro';
+import PracticePromo from '../components/site/PracticePromo.astro';
+import SiteContainer from '../components/site/SiteContainer.astro';
+import type { BreadcrumbEntry, FaqEntry } from '../components/seo/Schema.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  titleExact?: boolean;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbEntry[];
+  faqs?: FaqEntry[];
+  service?: { name: string; description?: string };
+  heroTitle: string;
+  heroImage: string | ImageMetadata;
+  heroAlt?: string;
+  /** Extra classes on the main content band (below hero). */
+  contentClass?: string;
+}
+
+const { heroTitle, heroImage, heroAlt, contentClass, ...baseProps } = Astro.props;
+---
+
+<BaseLayout {...baseProps}>
+  <PageHero title={heroTitle} image={heroImage} alt={heroAlt} />
+  <div class:list={[contentClass ?? 'bg-surface-muted py-10 lg:py-14']}>
+    <SiteContainer>
+      <slot />
+    </SiteContainer>
+  </div>
+  <PracticePromo />
+</BaseLayout>

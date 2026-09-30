@@ -1,0 +1,73 @@
+---
+import SiteContainer from '../SiteContainer.astro';
+---
+
+<section class="hero">
+  <SiteContainer>
+    <div
+      class="hero-image"
+      style="background-image: url('/images/banner01-1500.webp'); background-position: 75% 50%;"
+      role="img"
+      aria-label="Child holding a colorful umbrella outdoors"
+    >
+      <div class="hero-content">
+        <h2>&ldquo;I know my parents only want the best for me.&rdquo;</h2>
+      </div>
+    </div>
+  </SiteContainer>
+</section>
+
+<style is:global>
+  .hero {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero .contained {
+    position: relative;
+    height: 475px;
+    padding: 0;
+  }
+
+  .hero .hero-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero .hero-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero .hero-content h2 {
+    color: #fff;
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 2px 2px #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 575px) {
+    .hero .hero-content h2 {
+      width: 400px;
+      margin-left: 50px;
+      margin-right: auto;
+      font-size: 2.75em;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .hero .hero-content {
+      background-color: transparent;
+    }
+  }
+</style>

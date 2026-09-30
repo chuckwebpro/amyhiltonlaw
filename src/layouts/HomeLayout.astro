@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PracticePromo from '../components/site/PracticePromo.astro';
+import type { BreadcrumbEntry, FaqEntry } from '../components/seo/Schema.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  titleExact?: boolean;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbEntry[];
+  faqs?: FaqEntry[];
+}
+
+const baseProps = Astro.props;
+---
+
+<BaseLayout {...baseProps}>
+  <slot />
+  <PracticePromo />
+</BaseLayout>

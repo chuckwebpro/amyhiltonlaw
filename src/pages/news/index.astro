@@ -1,0 +1,143 @@
+---
+import InteriorLayout from '../../layouts/InteriorLayout.astro';
+import NewsSidebar from '../../components/site/NewsSidebar.astro';
+import PostCard from '../../components/site/PostCard.astro';
+import { getPublished } from '../../lib/articles';
+import { getLegacySeo, normalizeLegacyOgImage } from '../../lib/legacySeo';
+import { site } from '../../config/site';
+import '../../styles/hfl-news.css';
+
+const sitePath = '/news/';
+const legacy = getLegacySeo(sitePath);
+
+/** Static build: category/search run in the page script from `?category=` and the search box. */
+const allEntries = await getPublished();
+const featured = allEntries.slice(0, 2);
+const morePosts = allEntries.slice(2);
+---
+
+<InteriorLayout
+  title={legacy?.title}
+  titleExact={Boolean(legacy?.title)}
+  description={legacy?.description}
+  image={normalizeLegacyOgImage(legacy?.ogImage, site.url)}
+  heroTitle={legacy?.h1 ?? 'Hilton Family Law News'}
+  heroImage="/images/int-banner/int_familylawclinic.webp"
+  heroAlt="Mother and daughter smiling together outdoors"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'News', href: sitePath },
+  ]}
+>
+  <div class="news-index grid gap-8 lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-10">
+    <NewsSidebar activeCategory="" />
+
+    <div class="news-feed min-w-0" id="news-feed">
+      <p class="news-empty hidden" id="news-empty" role="status">
+        No posts match your search or category.
+      </p>
+      {
+        allEntries.length === 0 ? (
+          <p class="text-lg text-neutral-600">No posts yet.</p>
+        ) : (
+          <>
+            {featured.length > 0 && (
+              <section class="news-section" aria-labelledby="news-recent-heading">
+                <h2
+                  id="news-recent-heading"
+                  class="news-section-heading font-heading text-brand-700 border-line-base m-0 mb-5 border-b pb-2 text-xl font-bold lg:text-2xl"
+                >
+                  Most Recent Posts
+                </h2>
+                <ul class="news-featured-grid m-0 list-none space-y-6 p-0 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
+                  {featured.map((entry) => (
+                    <li>
+                      <PostCard entry={entry} featured />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {morePosts.length > 0 && (
+              <section class="news-section" aria-labelledby="news-more-heading">
+                <h2
+                  id="news-more-heading"
+                  class="news-section-heading font-heading text-brand-700 border-line-base m-0 mb-5 border-b pb-2 text-xl font-bold lg:text-2xl"
+                >
+                  More Posts
+                </h2>
+                <ul class="news-grid m-0 list-none space-y-6 p-0 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-7 lg:grid-cols-3">
+                  {morePosts.map((entry) => (
+                    <li>
+                      <PostCard entry={entry} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </>
+        )
+      }
+    </div>
+  </div>
+</InteriorLayout>
+
+<script>
+  const feed = document.getElementById('news-feed');
+  const emptyState = document.getElementById('news-empty');
+  const form = document.getElementById('news-search-form');
+  const searchInput = document.getElementById('news-search-text') as HTMLInputElement | null;
+
+  function setPostVisible(card: HTMLElement, visible: boolean) {
+    card.hidden = !visible;
+    const row = card.closest('li');
+    if (row instanceof HTMLElement) row.hidden = !visible;
+  }
+
+  function applyFilters() {
+    if (!feed) return;
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category')?.toLowerCase() ?? '';
+    const query = (searchInput?.value ?? '').trim().toLowerCase();
+    const cards = feed.querySelectorAll<HTMLElement>('[data-post-card]');
+
+    cards.forEach((card) => {
+      const cardCategory = card.dataset.category ?? '';
+      const title = card.dataset.title ?? '';
+      const description = card.dataset.description ?? '';
+      const categoryOk = !category || cardCategory === category;
+      const searchOk = !query || title.includes(query) || description.includes(query);
+      setPostVisible(card, categoryOk && searchOk);
+    });
+
+    feed.querySelectorAll<HTMLElement>('.news-section').forEach((section) => {
+      const visible = section.querySelector('[data-post-card]:not([hidden])');
+      section.hidden = !visible;
+    });
+
+    const anyVisible = feed.querySelector('[data-post-card]:not([hidden])');
+    emptyState?.classList.toggle('hidden', Boolean(anyVisible));
+
+    document.querySelectorAll<HTMLAnchorElement>('[data-category-link]').forEach((link) => {
+      const slug = link.dataset.categoryLink ?? '';
+      const active = slug === category;
+      link.toggleAttribute('aria-current', active);
+      link.classList.toggle('font-bold', active);
+      link.classList.toggle('text-brand-700', active);
+      link.classList.toggle('text-neutral-700', !active);
+    });
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    applyFilters();
+  });
+
+  searchInput?.addEventListener('input', () => {
+    applyFilters();
+  });
+
+  window.addEventListener('popstate', applyFilters);
+  applyFilters();
+</script>

@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 @import './theme.css';
+@import './hfl-contained.css';
+@import './hfl-areas.css';
+@import './hfl-footer.css';
+@import './hfl-endorsements.css';
+@import './hfl-contact.css';
 
 /* Blocks stack as full-width bands. Two adjacent bands sharing a background
    would otherwise contribute two pads to one visual gap. */

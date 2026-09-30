@@ -1,0 +1,15 @@
+---
+import EndorsementItem from './EndorsementItem.astro';
+import { endorsements } from '../../data/endorsements';
+---
+
+<div class="endorsements">
+  {
+    endorsements.map((entry, index) => (
+      <>
+        {index > 0 && <hr />}
+        <EndorsementItem entry={entry} />
+      </>
+    ))
+  }
+</div>

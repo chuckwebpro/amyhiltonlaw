@@ -1,0 +1,56 @@
+/* Interior thank-you and 404 — same band as contact and endorsements. */
+
+.status-page {
+  background-color: var(--color-surface-base);
+  padding-block: 50px;
+}
+
+.status-page h2 {
+  margin: 0 0 0.75em;
+  font-family: var(--font-sans);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-neutral-500);
+}
+
+.status-page p {
+  margin: 0 0 10px;
+  max-width: 42rem;
+  color: var(--color-neutral-950);
+  line-height: 1.8;
+}
+
+.status-page__links {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.status-page__links a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--color-neutral-900);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.status-page__links a:hover {
+  color: var(--color-brand-600);
+}
+
+.status-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.status-page__phone {
+  color: var(--color-neutral-950);
+  text-decoration: none;
+}
+
+.status-page__phone:hover {
+  text-decoration: underline;
+}

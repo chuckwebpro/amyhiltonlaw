@@ -10,8 +10,8 @@
     "viewport": { "width": 375, "height": 812, "isMobile": true }
   },
   "urls": [
-    "http://localhost:4321/",
-    "http://localhost:4321/thank-you/",
-    "http://localhost:4321/404.html"
+    "http://localhost:4322/",
+    "http://localhost:4322/thank-you/",
+    "http://localhost:4322/404.html"
   ]
 }

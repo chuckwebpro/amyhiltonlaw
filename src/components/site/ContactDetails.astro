@@ -1,0 +1,42 @@
+---
+import { site } from '../../config/site';
+
+const { street, locality, region, postalCode } = site.business.address;
+---
+
+<ul>
+  <li>
+    <ul>
+      <li><p><strong>Mailing Address</strong></p></li>
+      <li><p>{street}</p></li>
+      <li><p>{locality}, {region} {postalCode}</p></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><p><strong>Email Contact</strong></p></li>
+      <li>
+        <p>
+          <a href={`mailto:${site.business.email}`}>{site.business.email}</a>
+        </p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><p><strong>Telephone Contact</strong></p></li>
+      <li>
+        <p>
+          <a href={`tel:${site.business.phoneHref}`}>PH: {site.business.phone}</a>
+        </p>
+      </li>
+      {
+        site.business.fax && (
+          <li>
+            <p>FX: {site.business.fax}</p>
+          </li>
+        )
+      }
+    </ul>
+  </li>
+</ul>

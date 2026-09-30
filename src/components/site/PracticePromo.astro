@@ -1,0 +1,21 @@
+---
+import { navigation } from '../../config/navigation';
+import SiteContainer from './SiteContainer.astro';
+---
+
+<section class="areas">
+  <SiteContainer>
+    <div class="areas-banner">
+      <h2 class="areas-banner__title">Areas of Practice</h2>
+      <ul class="areas-banner__links">
+        {
+          navigation.practicePromo.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </SiteContainer>
+</section>

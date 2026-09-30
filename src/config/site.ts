@@ -44,6 +44,8 @@ export interface SiteConfig {
     /** Digits only, E.164 — used for tel: links. */
     phoneHref: string;
     email: string;
+    /** Optional fax for display in contact copy and schema descriptions. */
+    fax?: string;
     address: {
       street: string;
       locality: string;
@@ -92,38 +94,36 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  url: 'https://example.com',
-  name: 'Demo Business',
-  legalName: 'Demo Business LLC',
-  tagline: 'Straightforward work, done right the first time.',
+  url: 'https://amyhiltonlaw.com',
+  name: 'Hilton Family Law',
+  legalName: 'Hilton Family Law',
+  tagline: 'Let us guide you through this storm.',
   description:
-    'Demo Business is a placeholder used by the starter template. Replace this copy during project setup.',
+    'Hilton Family Law helps families in Antioch and the East Bay transition through divorce and family law matters with dignity. Fax: (925) 775-7065.',
   locale: 'en-US',
 
   business: {
-    schemaType: 'LocalBusiness',
-    phone: '(555) 010-4477',
-    phoneHref: '+15550104477',
-    email: 'hello@example.com',
+    schemaType: 'Attorney',
+    phone: '(925) 384-2086',
+    phoneHref: '+19253842086',
+    email: 'legal@amyhiltonlaw.com',
+    fax: '(925) 775-7065',
     address: {
-      street: '1200 Market Street, Suite 400',
-      locality: 'Columbus',
-      region: 'OH',
-      postalCode: '43215',
+      street: '5181 Lone Tree Way',
+      locality: 'Antioch',
+      region: 'CA',
+      postalCode: '94531',
       country: 'US',
     },
-    geo: { latitude: 39.9612, longitude: -82.9988 },
-    hours: ['Mo-Fr 08:00-17:00', 'Sa 09:00-13:00'],
+    hours: [],
     priceRange: '$$',
   },
 
   social: {
-    facebook: 'https://facebook.com/example',
-    instagram: 'https://instagram.com/example',
-    linkedin: 'https://linkedin.com/company/example',
+    facebook: 'https://www.facebook.com/HiltonFamilyLaw/',
   },
 
-  defaultOgImage: '/og-default.png',
+  defaultOgImage: '/images/og.jpg',
 
   formEndpoint: '/api/submit.php',
   recaptchaSiteKey: '',

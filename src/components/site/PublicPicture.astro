@@ -1,0 +1,48 @@
+---
+interface Props {
+  /** Public path, e.g. `/images/int-banner/int_about.webp` (stem used for `-{width}.webp` variants). */
+  src: string;
+  alt: string;
+  widths: number[];
+  sizes: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  width?: number | string;
+  height?: number | string;
+}
+
+const {
+  src,
+  alt,
+  widths,
+  sizes,
+  class: className,
+  loading = 'lazy',
+  decoding = 'async',
+  fetchpriority,
+  width,
+  height,
+} = Astro.props;
+
+const base = src.replace(/\.(webp|jpe?g|png)$/i, '');
+const sortedWidths = [...widths].sort((a, b) => a - b);
+const largest = sortedWidths[sortedWidths.length - 1];
+const webpSrcSet = sortedWidths.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
+const fallbackSrc = `${base}-${largest}.webp`;
+---
+
+<picture>
+  <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />
+  <img
+    src={fallbackSrc}
+    alt={alt}
+    class={className}
+    loading={loading}
+    decoding={decoding}
+    fetchpriority={fetchpriority}
+    width={width}
+    height={height}
+  />
+</picture>

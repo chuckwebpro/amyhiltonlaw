@@ -1,0 +1,33 @@
+---
+import InteriorLayout from '../../layouts/InteriorLayout.astro';
+import ContactDetails from '../../components/site/ContactDetails.astro';
+import ContactForm from '../../components/site/ContactForm.astro';
+import { getLegacySeo, normalizeLegacyOgImage } from '../../lib/legacySeo';
+import { site } from '../../config/site';
+
+const sitePath = '/contact/';
+const legacy = getLegacySeo(sitePath);
+const heroImage = '/images/int-banner/interior_banner.webp';
+---
+
+<InteriorLayout
+  title={legacy?.title}
+  titleExact={Boolean(legacy?.title)}
+  description={legacy?.description}
+  image={normalizeLegacyOgImage(legacy?.ogImage, site.url)}
+  heroTitle={legacy?.h1 ?? 'Contact'}
+  heroImage={heroImage}
+  heroAlt="Contact Hilton Family Law"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Contact', href: sitePath },
+  ]}
+  contentClass="contact-page"
+>
+  <div class="contact">
+    <div class="contact__inner">
+      <ContactDetails />
+      <ContactForm />
+    </div>
+  </div>
+</InteriorLayout>

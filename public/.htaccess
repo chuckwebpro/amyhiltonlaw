@@ -26,6 +26,38 @@ ErrorDocument 404 /404.html
   RewriteCond %{REQUEST_URI} !(.+)/$
   RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
   RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # ----- BEGIN ARTICLE CANONICAL SLUG 301 REDIRECTS (from src/data/article-redirects.ts) -----
+  # Regenerate: node scripts/generate-article-htaccess.mjs
+  RewriteRule ^article/cal-exit---a-move-away-trend-in-california/?$ /article/cal-exit-a-move-away-trend-in-california/ [R=301,L]
+  RewriteRule ^article/covid-19---here-for-the-long-haul/?$ /article/covid-19-here-for-the-long-haul/ [R=301,L]
+  RewriteRule ^article/my-ex-is-a-narcissist--honey-they-all-are/?$ /article/my-ex-is-a-narcissist-honey-they-all-are/ [R=301,L]
+  RewriteRule ^article/co-parenting-covid-19-and-halloween-/?$ /article/co-parenting-covid-19-and-halloween/ [R=301,L]
+  RewriteRule ^article/the-honor-and-responsibility-of-mentoring-female-attorneys-/?$ /article/the-honor-and-responsibility-of-mentoring-female-attorneys/ [R=301,L]
+  RewriteRule ^article/co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids/?$ /article/co-parenting-the-journey-you-never-wanted-to-take/ [R=301,L]
+  RewriteRule ^article/helping-your-kids-heal-after-a-divorce/?$ /article/helping-your-kids-heal-after-a-divorce-part-two/ [R=301,L]
+  RewriteRule ^article/high-cost-of-the-unknown-with-divorce/?$ /article/high-cost-of-the-unknown-in-a-divorce/ [R=301,L]
+  RewriteRule ^article/you-marriage-ended-but-your-parenting-job-has-not/?$ /article/your-marriage-ended-but-your-parenting-job-has-not/ [R=301,L]
+  # ----- END ARTICLE CANONICAL SLUG 301 REDIRECTS -----
+
+  # ----- BEGIN LEGACY default.aspx 301 REDIRECTS (from legacy-seo.json) -----
+  # Regenerate: node scripts/generate-legacy-path-htaccess.mjs
+  RewriteRule ^contact/default\.aspx/?$ /contact/ [R=301,L]
+  RewriteRule ^default\.aspx/?$ // [R=301,L]
+  RewriteRule ^endorsements/default\.aspx/?$ /endorsements/ [R=301,L]
+  RewriteRule ^news/default\.aspx/?$ /news/ [R=301,L]
+  RewriteRule ^our-lawyers/amy-hilton/default\.aspx/?$ /our-lawyers/amy-hilton/ [R=301,L]
+  RewriteRule ^our-lawyers/hemma-gill/default\.aspx/?$ /our-lawyers/hemma-gill/ [R=301,L]
+  RewriteRule ^services/child-and-spousal-support/default\.aspx/?$ /services/child-and-spousal-support/ [R=301,L]
+  RewriteRule ^services/child-custody/default\.aspx/?$ /services/child-custody/ [R=301,L]
+  RewriteRule ^services/domestic-violence/default\.aspx/?$ /services/domestic-violence/ [R=301,L]
+  RewriteRule ^services/enforcement/default\.aspx/?$ /services/enforcement/ [R=301,L]
+  RewriteRule ^services/modifications/default\.aspx/?$ /services/modifications/ [R=301,L]
+  RewriteRule ^services/property-division/default\.aspx/?$ /services/property-division/ [R=301,L]
+  RewriteRule ^services/retirement/default\.aspx/?$ /services/retirement/ [R=301,L]
+  RewriteRule ^services/set-asides/default\.aspx/?$ /services/set-asides/ [R=301,L]
+  # ----- END LEGACY default.aspx 301 REDIRECTS -----
+
 </IfModule>
 
 <IfModule mod_deflate.c>

@@ -1,0 +1,115 @@
+---
+import SiteButton from '../SiteButton.astro';
+import SiteContainer from '../SiteContainer.astro';
+import PublicPicture from '../PublicPicture.astro';
+import { site } from '../../../config/site';
+---
+
+<section class="storm">
+  <SiteContainer>
+    <PublicPicture
+      src="/images/img_mom_daughter.webp"
+      alt="Let us guide you through this storm"
+      widths={[570, 1140]}
+      sizes="(min-width: 1070px) 570px, 100vw"
+      width={570}
+      height={400}
+      loading="lazy"
+    />
+    <div>
+      <h2>{site.tagline}</h2>
+      <SiteButton href="/contact/" class="storm-cta-btn">Contact Us Now</SiteButton>
+    </div>
+  </SiteContainer>
+</section>
+
+<style is:global>
+  .storm {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  .storm .contained {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #999;
+    padding: 0;
+  }
+
+  .storm .contained img {
+    flex: 0 1 auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .storm .contained > div {
+    flex: 0 1 calc(100% - 570px);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .storm .contained > div h2 {
+    color: #fff;
+    font-size: 2.2em;
+    margin: 0 0 35px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 550px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 450px) {
+    .storm .contained > div h2 {
+      font-size: 3.8em;
+    }
+  }
+
+  @media (min-width: 1070px) {
+    .storm .contained {
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      align-items: stretch;
+    }
+
+    .storm .contained img {
+      flex: 0 0 570px;
+      width: 570px;
+      max-width: 570px;
+      height: auto;
+      object-fit: cover;
+      align-self: center;
+    }
+
+    .storm .contained > div {
+      flex: 1 1 calc(100% - 570px);
+      min-width: 0;
+    }
+
+    .storm .contained > div h2 {
+      font-size: 2.3em;
+    }
+  }
+
+  @media (min-width: 1270px) {
+    .storm .contained > div h2 {
+      font-size: 3.3em;
+    }
+  }
+
+  .storm .storm-cta-btn {
+    flex-shrink: 0;
+  }
+</style>

@@ -4,5 +4,4 @@ Allow: /
 Disallow: /thank-you/
 Disallow: /styleguide/
 
-# Update the host to match `site` in astro.config.mjs before launch.
-Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://amyhiltonlaw.com/sitemap-index.xml

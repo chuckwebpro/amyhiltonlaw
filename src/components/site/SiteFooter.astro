@@ -1,0 +1,65 @@
+---
+import { navigation } from '../../config/navigation';
+import { site } from '../../config/site';
+import SiteContainer from './SiteContainer.astro';
+import PublicPicture from './PublicPicture.astro';
+
+const year = new Date().getFullYear();
+const [mainMenu, areasMenu, areasContinued] = navigation.footer;
+---
+
+<footer class="site-footer">
+  <SiteContainer>
+    <ul>
+      <li><strong>{mainMenu.heading}</strong></li>
+      {
+        mainMenu.links.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul>
+      <li><strong>{areasMenu.heading}</strong></li>
+      {
+        areasMenu.links.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+      <li><strong aria-hidden="true">&nbsp;</strong></li>
+    </ul>
+    <ul>
+      {
+        areasContinued.links.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul>
+      <li>
+        <PublicPicture
+          src="/images/logo_ftr.webp"
+          alt="Hilton Family Law Footer Logo"
+          widths={[150, 246, 300]}
+          sizes="246px"
+          width={246}
+          height={104}
+          loading="lazy"
+        />
+      </li>
+      <li>Designed &amp; Developed By</li>
+      <li>
+        <a href="https://www.webpro.com/" target="_blank" rel="noopener noreferrer"> WEBPRO.COM </a>
+      </li>
+      <li>
+        <a href="/">{site.name}</a> ® {year}
+      </li>
+      <li>All Rights Reserved.</li>
+    </ul>
+  </SiteContainer>
+</footer>

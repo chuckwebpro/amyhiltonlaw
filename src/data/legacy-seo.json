@@ -1,0 +1,576 @@
+{
+  "/": {
+    "path": "/",
+    "title": "Hilton Family Law, Antioch Attorney. Let Us Guide You Through This Storm",
+    "description": "Home - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Let Us Guide You Through This Storm",
+    "ogDescription": "Home - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/default.aspx",
+    "h1": "HILTON FAMILY LAW IS OPEN DURING THE COVID-19 PANDEMIC"
+  },
+  "/contact/": {
+    "path": "/contact/",
+    "title": "Hilton Family Law, Antioch Attorney. Contact",
+    "description": "Contact - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Contact",
+    "ogDescription": "Contact - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/contact/default.aspx",
+    "h1": "Contact"
+  },
+  "/news/": {
+    "path": "/news/",
+    "title": "Hilton Family Law, Antioch Attorney. News",
+    "description": "News - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. News",
+    "ogDescription": "News - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/news/default.aspx",
+    "h1": "Hilton Family Law News"
+  },
+  "/endorsements/": {
+    "path": "/endorsements/",
+    "title": "Hilton Family Law, Antioch Attorney. Endorsements",
+    "description": "Endorsements - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Endorsements",
+    "ogDescription": "Endorsements - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/endorsements/default.aspx",
+    "h1": "Endorsements"
+  },
+  "/our-lawyers/amy-hilton/": {
+    "path": "/our-lawyers/amy-hilton/",
+    "title": "Hilton Family Law, Antioch Attorney. Amy S. Hilton, Attorney at Law",
+    "description": "Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Amy S. Hilton, Attorney at Law",
+    "ogDescription": "Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/our-lawyers/amy-hilton/default.aspx",
+    "h1": "Fair and Aggressive"
+  },
+  "/our-lawyers/hemma-gill/": {
+    "path": "/our-lawyers/hemma-gill/",
+    "title": "Hilton Family Law, Antioch Attorney. Associate Attorney Hemma Gill",
+    "description": "Associate Attorney Hemma Gill - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Associate Attorney Hemma Gill",
+    "ogDescription": "Associate Attorney Hemma Gill - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/our-lawyers/hemma-gill/default.aspx",
+    "h1": "Meet Associate Attorney Hemma Gill"
+  },
+  "/services/child-custody/": {
+    "path": "/services/child-custody/",
+    "title": "Hilton Family Law, Antioch Attorney. Child Custody in California",
+    "description": "Child Custody - The first thing parents want to discuss is the custody of their children. This is the most important and difficult part of a divorce.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Child Custody in California",
+    "ogDescription": "Child Custody - The first thing parents want to discuss is the custody of their children. This is the most important and difficult part of a divorce.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/child-custody/default.aspx",
+    "h1": "Child Custody and Visitation"
+  },
+  "/services/child-and-spousal-support/": {
+    "path": "/services/child-and-spousal-support/",
+    "title": "Hilton Family Law, Antioch Attorney. Child Support",
+    "description": "Child Support - After child custody is set, then the next area of concern is the financial support for the children. ",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Child Support",
+    "ogDescription": "Child Support - After child custody is set, then the next area of concern is the financial support for the children. ",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/child-and-spousal-support/default.aspx",
+    "h1": "Child Support, Spousal Support and Paternity"
+  },
+  "/services/domestic-violence/": {
+    "path": "/services/domestic-violence/",
+    "title": "Hilton Family Law, Antioch Attorney. Domestic Violence",
+    "description": "Domestic Violence - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Domestic Violence",
+    "ogDescription": "Domestic Violence - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/domestic-violence/default.aspx",
+    "h1": "Domestic Violence"
+  },
+  "/services/property-division/": {
+    "path": "/services/property-division/",
+    "title": "Hilton Family Law, Antioch Attorney. Property Division",
+    "description": "Property Division - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Property Division",
+    "ogDescription": "Property Division - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/property-division/default.aspx",
+    "h1": "Property Division"
+  },
+  "/services/retirement/": {
+    "path": "/services/retirement/",
+    "title": "Hilton Family Law, Antioch Attorney. Retirement Security",
+    "description": "Retirement Security - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Retirement Security",
+    "ogDescription": "Retirement Security - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/retirement/default.aspx",
+    "h1": "Retirement"
+  },
+  "/services/modifications/": {
+    "path": "/services/modifications/",
+    "title": "Hilton Family Law, Antioch Attorney. Modification of Custody and Support",
+    "description": "Modification of Child Support - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Modification of Custody and Support",
+    "ogDescription": "Modification of Child Support - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/modifications/default.aspx",
+    "h1": "Modification of Child Custody and Child Support"
+  },
+  "/services/enforcement/": {
+    "path": "/services/enforcement/",
+    "title": "Hilton Family Law, Antioch Attorney. Enforcement",
+    "description": "Enforcement - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Enforcement",
+    "ogDescription": "Enforcement - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/enforcement/default.aspx",
+    "h1": "Enforcement"
+  },
+  "/services/set-asides/": {
+    "path": "/services/set-asides/",
+    "title": "Hilton Family Law, Antioch Attorney. Set Asides",
+    "description": "Set Asides - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogTitle": "Hilton Family Law, Antioch Attorney. Set Asides",
+    "ogDescription": "Set Asides - Amy’s family law practice philosophy is to help families transition with dignity. With her extensive trial background and dedication, clients are always pleased with the service she provides.",
+    "ogImage": "http://www.amyhiltonlaw.com/images/og.jpg",
+    "ogImages": ["http://www.amyhiltonlaw.com/images/og.jpg"],
+    "canonical": "https://amyhiltonlaw.com/services/set-asides/default.aspx",
+    "h1": "Set Aside Cases"
+  },
+  "/article/a-divorce-attorney-can-save-you-money/": {
+    "path": "/article/a-divorce-attorney-can-save-you-money/",
+    "legacySlug": "a-divorce-attorney-can-save-you-money",
+    "title": "Hilton Family Law - A Divorce Attorney Can Save You Money",
+    "description": "It&#39;s never easy going through a divorce. Your best bet is to hire a Certified Family Law Specialist who understands your key issues such as custody, spousal support, and the fair division of assets.",
+    "ogTitle": "Hilton Family Law - A Divorce Attorney Can Save You Money",
+    "ogDescription": "It&#39;s never easy going through a divorce. Your best bet is to hire a Certified Family Law Specialist who understands your key issues such as custody, spousal support, and the fair division of assets.",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/SaveMoney.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/SaveMoney.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/a-divorce-attorney-can-save-you-money/",
+    "h1": "A Divorce Attorney Can Save You Money"
+  },
+  "/article/cal-exit---a-move-away-trend-in-california/": {
+    "path": "/article/cal-exit---a-move-away-trend-in-california/",
+    "legacySlug": "cal-exit---a-move-away-trend-in-california",
+    "title": "Hilton Family Law - CAL-EXIT - A MOVE AWAY TREND IN CALIFORNIA",
+    "description": "move-away cases has exploded",
+    "ogTitle": "Hilton Family Law - CAL-EXIT - A MOVE AWAY TREND IN CALIFORNIA",
+    "ogDescription": "move-away cases has exploded",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/story-leave.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/story-leave.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/cal-exit---a-move-away-trend-in-california/",
+    "h1": "CAL-EXIT - A MOVE AWAY TREND IN CALIFORNIA"
+  },
+  "/article/co-parenting-covid-19-and-halloween-/": {
+    "path": "/article/co-parenting-covid-19-and-halloween-/",
+    "legacySlug": "co-parenting-covid-19-and-halloween-",
+    "title": "Hilton Family Law - Co-parenting-Covid-19 and Halloween",
+    "description": "If you’re like me and my client’s with children, the dreaded question of what to do about Halloween is causing you to lose sleep already.  ",
+    "ogTitle": "Hilton Family Law - Co-parenting-Covid-19 and Halloween ",
+    "ogDescription": "If you’re like me and my client’s with children, the dreaded question of what to do about Halloween is causing you to lose sleep already.  ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/H1SM.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/H1SM.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/co-parenting-covid-19-and-halloween-/",
+    "h1": "Co-parenting-Covid-19 and Halloween"
+  },
+  "/article/co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids/": {
+    "path": "/article/co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids/",
+    "legacySlug": "co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids",
+    "title": "Hilton Family Law - Co-Parenting: The Journey You Never Wanted to Take",
+    "description": "This was not the way you had dreamed up happily ever after. You certainly didn’t expect to share the responsibility of raising your children between two different households, potentially with other partners in the mix",
+    "ogTitle": "Hilton Family Law - Co-Parenting: The Journey You Never Wanted to Take",
+    "ogDescription": "This was not the way you had dreamed up happily ever after. You certainly didn’t expect to share the responsibility of raising your children between two different households, potentially with other partners in the mix",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/HFL-Family-Planning.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/HFL-Family-Planning.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/co-parenting-the-journey-you-never-wanted-to-take-and-how-to-make-it-right-for-the-kids/",
+    "h1": "Co-Parenting: The Journey You Never Wanted to Take"
+  },
+  "/article/covid-19---here-for-the-long-haul/": {
+    "path": "/article/covid-19---here-for-the-long-haul/",
+    "legacySlug": "covid-19---here-for-the-long-haul",
+    "title": "Hilton Family Law - COVID-19 – HERE FOR THE LONG HAUL",
+    "description": "Business has changed along with everyone else’s but I want to assure you, we’re available and ready to help you!  ",
+    "ogTitle": "Hilton Family Law - COVID-19 – HERE FOR THE LONG HAUL",
+    "ogDescription": "Business has changed along with everyone else’s but I want to assure you, we’re available and ready to help you!  ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Life-LG.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Life-LG.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/covid-19---here-for-the-long-haul/",
+    "h1": "COVID-19 – HERE FOR THE LONG HAUL"
+  },
+  "/article/divorce-dads-and-child-development/": {
+    "path": "/article/divorce-dads-and-child-development/",
+    "legacySlug": "divorce-dads-and-child-development",
+    "title": "Hilton Family Law - Divorce, Dads, and Child Development",
+    "description": "There are numerous studies that show that when Fathers are engaged in their children’s lives, the children’s chances of success increases.",
+    "ogTitle": "Hilton Family Law - Divorce, Dads, and Child Development",
+    "ogDescription": "There are numerous studies that show that when Fathers are engaged in their children’s lives, the children’s chances of success increases.",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Family-Law-Divorce.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Family-Law-Divorce.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/divorce-dads-and-child-development/",
+    "h1": "Divorce, Dads, and Child Development"
+  },
+  "/article/divorce-impact-on-children/": {
+    "path": "/article/divorce-impact-on-children/",
+    "legacySlug": "divorce-impact-on-children",
+    "title": "Hilton Family Law - Divorce Impact on Children",
+    "description": "There is no way to underplay the emotional impact that divorce has on children ",
+    "ogTitle": "Hilton Family Law - Divorce Impact on Children",
+    "ogDescription": "There is no way to underplay the emotional impact that divorce has on children ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Divorce-Impact-Children.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Divorce-Impact-Children.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/divorce-impact-on-children/",
+    "h1": "Divorce Impact on Children"
+  },
+  "/article/divorce-season/": {
+    "path": "/article/divorce-season/",
+    "legacySlug": "divorce-season",
+    "title": "Hilton Family Law - Divorce Season",
+    "description": "Divorce Season",
+    "ogTitle": "Hilton Family Law - Divorce Season",
+    "ogDescription": "Divorce Season",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Season-Divorce-SM",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Season-Divorce-SM",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/divorce-season/",
+    "h1": "Divorce Season"
+  },
+  "/article/domestic-violence-is-so-much-more-than-physical/": {
+    "path": "/article/domestic-violence-is-so-much-more-than-physical/",
+    "legacySlug": "domestic-violence-is-so-much-more-than-physical",
+    "title": "Hilton Family Law - Domestic Violence Is So Much More than Physical",
+    "description": "Domestic Violence Is So Much More than Physical Abuse and It Can Alter Custody and Visitation for the Life of a Child",
+    "ogTitle": "Hilton Family Law - Domestic Violence Is So Much More than Physical",
+    "ogDescription": "Domestic Violence Is So Much More than Physical Abuse and It Can Alter Custody and Visitation for the Life of a Child",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/article-abuse.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/article-abuse.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/domestic-violence-is-so-much-more-than-physical/",
+    "h1": "Domestic Violence Is So Much More than Physical"
+  },
+  "/article/happy-blended-family-holidays/": {
+    "path": "/article/happy-blended-family-holidays/",
+    "legacySlug": "happy-blended-family-holidays",
+    "title": "Hilton Family Law - Happy Blended Family Holidays",
+    "description": "As if the regular school, weekend and vacation schedule was not challenging enough, the holidays add even more pressure to blended families.  The key is be flexible, loving, and put the kids first and not getting an advantage of your former spouse. ",
+    "ogTitle": "Hilton Family Law - Happy Blended Family Holidays",
+    "ogDescription": "As if the regular school, weekend and vacation schedule was not challenging enough, the holidays add even more pressure to blended families.  The key is be flexible, loving, and put the kids first and not getting an advantage of your former spouse. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/HFL-NOT.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/HFL-NOT.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/happy-blended-family-holidays/",
+    "h1": "Happy Blended Family Holidays"
+  },
+  "/article/helping-your-kids-heal-after-a-divorce/": {
+    "path": "/article/helping-your-kids-heal-after-a-divorce/",
+    "legacySlug": "helping-your-kids-heal-after-a-divorce",
+    "title": "Hilton Family Law - Helping your Kids Heal after a Divorce. Part Two",
+    "description": "Here is the second part to my blog on helping your children heal after a divorce.",
+    "ogTitle": "Hilton Family Law - Helping your Kids Heal after a Divorce. Part Two",
+    "ogDescription": "Here is the second part to my blog on helping your children heal after a divorce.",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/article-divorce_attorney.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/article-divorce_attorney.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/helping-your-kids-heal-after-a-divorce/",
+    "h1": "Helping your Kids Heal after a Divorce. Part Two"
+  },
+  "/article/helping-your-kids-heal-after-a-divorce-part-one/": {
+    "path": "/article/helping-your-kids-heal-after-a-divorce-part-one/",
+    "legacySlug": "helping-your-kids-heal-after-a-divorce-part-one",
+    "title": "Hilton Family Law - Helping your Kids Heal after a Divorce. Part One",
+    "description": "If you are going through a divorce and you have kids, you have likely heard this or said this to yourself, and prayed that it was true",
+    "ogTitle": "Hilton Family Law - Helping your Kids Heal after a Divorce. Part One",
+    "ogDescription": "If you are going through a divorce and you have kids, you have likely heard this or said this to yourself, and prayed that it was true",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/article-divorce_attorney.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/article-divorce_attorney.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/helping-your-kids-heal-after-a-divorce-part-one/",
+    "h1": "Helping your Kids Heal after a Divorce. Part One"
+  },
+  "/article/high-cost-of-the-unknown-with-divorce/": {
+    "path": "/article/high-cost-of-the-unknown-with-divorce/",
+    "legacySlug": "high-cost-of-the-unknown-with-divorce",
+    "title": "Hilton Family Law - The High Cost of the Unknown in a Divorce",
+    "description": "Divorce Season",
+    "ogTitle": "Hilton Family Law - The High Cost of the Unknown in a Divorce ",
+    "ogDescription": "Divorce Season",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Cost-Disclosure-SM.png",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Cost-Disclosure-SM.png",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/high-cost-of-the-unknown-with-divorce/",
+    "h1": "The High Cost of the Unknown in a Divorce"
+  },
+  "/article/high-net-worth-divorce/": {
+    "path": "/article/high-net-worth-divorce/",
+    "legacySlug": "high-net-worth-divorce",
+    "title": "Hilton Family Law - High Net Worth Divorce",
+    "description": "A divorce is complicated enough. It can be even more complicated when the couple has significant assets to divide. ",
+    "ogTitle": "Hilton Family Law - High Net Worth Divorce",
+    "ogDescription": "A divorce is complicated enough. It can be even more complicated when the couple has significant assets to divide. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/High_Net_Worth_Divorce.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/High_Net_Worth_Divorce.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/high-net-worth-divorce/",
+    "h1": "High Net Worth Divorce"
+  },
+  "/article/honesty-is-the-best-policy/": {
+    "path": "/article/honesty-is-the-best-policy/",
+    "legacySlug": "honesty-is-the-best-policy",
+    "title": "Hilton Family Law - Honesty is the Best Policy",
+    "description": "It shouldn’t surprise me, but it always does when spouses attempt to hide assets from each other. ",
+    "ogTitle": "Hilton Family Law - Honesty is the Best Policy",
+    "ogDescription": "It shouldn’t surprise me, but it always does when spouses attempt to hide assets from each other. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/honesty.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/honesty.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/honesty-is-the-best-policy/",
+    "h1": "Honesty is the Best Policy"
+  },
+  "/article/how-to-avoid-hiring-a-divorce-attorney-like-me/": {
+    "path": "/article/how-to-avoid-hiring-a-divorce-attorney-like-me/",
+    "legacySlug": "how-to-avoid-hiring-a-divorce-attorney-like-me",
+    "title": "Hilton Family Law - How to Avoid Hiring a Divorce Attorney like Me",
+    "description": "The best way to avoid a messy divorce, is to marry the right person, be faithful, and treat each other well. ",
+    "ogTitle": "Hilton Family Law - How to Avoid Hiring a Divorce Attorney like Me",
+    "ogDescription": "The best way to avoid a messy divorce, is to marry the right person, be faithful, and treat each other well. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Antioch-Divorce-Attorney-Antioch-CA.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Antioch-Divorce-Attorney-Antioch-CA.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/how-to-avoid-hiring-a-divorce-attorney-like-me/",
+    "h1": "How to Avoid Hiring a Divorce Attorney like Me"
+  },
+  "/article/legally-untangling-comingled-property/": {
+    "path": "/article/legally-untangling-comingled-property/",
+    "legacySlug": "legally-untangling-comingled-property",
+    "title": "Hilton Family Law - Legally Untangling Comingled Property",
+    "description": "Disputing Comingled Property in California",
+    "ogTitle": "Hilton Family Law - Legally Untangling Comingled Property",
+    "ogDescription": "Disputing Comingled Property in California",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Tangel.png",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Tangel.png",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/legally-untangling-comingled-property/",
+    "h1": "Legally Untangling Comingled Property"
+  },
+  "/article/make-mothers-day-great-for-your-ex/": {
+    "path": "/article/make-mothers-day-great-for-your-ex/",
+    "legacySlug": "make-mothers-day-great-for-your-ex",
+    "title": "Hilton Family Law - Make Mother’s Day Great for Your Ex",
+    "description": "Make Mother’s Day Great for Your Ex Because its Really About Your Kids: Buy Her the Flowers that You Should Have Gotten Her During the Marriage",
+    "ogTitle": "Hilton Family Law - Make Mother’s Day Great for Your Ex",
+    "ogDescription": "Make Mother’s Day Great for Your Ex Because its Really About Your Kids: Buy Her the Flowers that You Should Have Gotten Her During the Marriage",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/MothersDay.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/MothersDay.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/make-mothers-day-great-for-your-ex/",
+    "h1": "Make Mother’s Day Great for Your Ex"
+  },
+  "/article/my-ex-is-a-narcissist--honey-they-all-are/": {
+    "path": "/article/my-ex-is-a-narcissist--honey-they-all-are/",
+    "legacySlug": "my-ex-is-a-narcissist--honey-they-all-are",
+    "title": "Hilton Family Law - MY EX IS A NARCISSIST, HONEY THEY ALL ARE",
+    "description": "Many of my clients believe they are divorcing narcissist",
+    "ogTitle": "Hilton Family Law - MY EX IS A NARCISSIST, HONEY THEY ALL ARE",
+    "ogDescription": "Many of my clients believe they are divorcing narcissist",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Cost-Disclosure-SM.png",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Cost-Disclosure-SM.png",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/my-ex-is-a-narcissist--honey-they-all-are/",
+    "h1": "MY EX IS A NARCISSIST, HONEY THEY ALL ARE"
+  },
+  "/article/my-favorite-practice-is-the-practice-of-giving/": {
+    "path": "/article/my-favorite-practice-is-the-practice-of-giving/",
+    "legacySlug": "my-favorite-practice-is-the-practice-of-giving",
+    "title": "Hilton Family Law - My Favorite Practice is the Practice of Giving",
+    "description": "We work hard to serve our clients in their custody disputes, high net assets property divisions, and spousal support and child support issues, but we are also here to serve our community. ",
+    "ogTitle": "Hilton Family Law - My Favorite Practice is the Practice of Giving",
+    "ogDescription": "We work hard to serve our clients in their custody disputes, high net assets property divisions, and spousal support and child support issues, but we are also here to serve our community. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Thanks-AH.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Thanks-AH.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/my-favorite-practice-is-the-practice-of-giving/",
+    "h1": "My Favorite Practice is the Practice of Giving"
+  },
+  "/article/property-division/": {
+    "path": "/article/property-division/",
+    "legacySlug": "property-division",
+    "title": "Hilton Family Law - Property Division",
+    "description": "A divorce is complicated enough, but even more complicated when you have a closely held business. ",
+    "ogTitle": "Hilton Family Law - Property Division",
+    "ogDescription": "A divorce is complicated enough, but even more complicated when you have a closely held business. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Property-Division.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Property-Division.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/property-division/",
+    "h1": "Property Division"
+  },
+  "/article/single-parenting-for-the-holidays/": {
+    "path": "/article/single-parenting-for-the-holidays/",
+    "legacySlug": "single-parenting-for-the-holidays",
+    "title": "Hilton Family Law - Single Parenting for the Holidays",
+    "description": "Single parenting during the holidays can be as painful as a visit to the dentist before painkillers. It can cause physical exhaustion, emotional breakdowns, and financial stress.",
+    "ogTitle": "Hilton Family Law - Single Parenting for the Holidays",
+    "ogDescription": "Single parenting during the holidays can be as painful as a visit to the dentist before painkillers. It can cause physical exhaustion, emotional breakdowns, and financial stress.",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Single_Parenting_Divorce_Lawyer.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Single_Parenting_Divorce_Lawyer.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/single-parenting-for-the-holidays/",
+    "h1": "Single Parenting for the Holidays"
+  },
+  "/article/suddenly-single-for-the-holidays/": {
+    "path": "/article/suddenly-single-for-the-holidays/",
+    "legacySlug": "suddenly-single-for-the-holidays",
+    "title": "Hilton Family Law - Suddenly Single for the Holidays",
+    "description": "The holiday season is upon us. From Halloween through New Year’s Eve, life is business with parties, decorations, family trips, and for the newly single, agonizing months of memories of the past.",
+    "ogTitle": "Hilton Family Law - Suddenly Single for the Holidays",
+    "ogDescription": "The holiday season is upon us. From Halloween through New Year’s Eve, life is business with parties, decorations, family trips, and for the newly single, agonizing months of memories of the past.",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Suddenly-Single.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Suddenly-Single.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/suddenly-single-for-the-holidays/",
+    "h1": "Suddenly Single for the Holidays"
+  },
+  "/article/the-formula-for-child-support/": {
+    "path": "/article/the-formula-for-child-support/",
+    "legacySlug": "the-formula-for-child-support",
+    "title": "Hilton Family Law - The Formula for Child Support",
+    "description": "The Formula: CS = K (HN - (H%) (TN)), What ????   Potential clients and current clients have similar concerns when it comes to spousal support and child support.  ",
+    "ogTitle": "Hilton Family Law - The Formula for Child Support",
+    "ogDescription": "The Formula: CS = K (HN - (H%) (TN)), What ????   Potential clients and current clients have similar concerns when it comes to spousal support and child support.  ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/small-scope.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/small-scope.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/the-formula-for-child-support/",
+    "h1": "The Formula for Child Support"
+  },
+  "/article/the-honor-and-responsibility-of-mentoring-female-attorneys-/": {
+    "path": "/article/the-honor-and-responsibility-of-mentoring-female-attorneys-/",
+    "legacySlug": "the-honor-and-responsibility-of-mentoring-female-attorneys-",
+    "title": "Hilton Family Law - The Honor and Responsibility of Mentoring Female Attorneys",
+    "description": "Since I began my business several years ago, I have had the honor and responsibility of mentoring and training three relatively new attorneys, all females, from various backgrounds.  ",
+    "ogTitle": "Hilton Family Law - The Honor and Responsibility of Mentoring Female Attorneys ",
+    "ogDescription": "Since I began my business several years ago, I have had the honor and responsibility of mentoring and training three relatively new attorneys, all females, from various backgrounds.  ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/MentorLG.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/MentorLG.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/the-honor-and-responsibility-of-mentoring-female-attorneys-/",
+    "h1": "The Honor and Responsibility of Mentoring Female Attorneys"
+  },
+  "/article/tips-for-making-a-blended-family-a-healthy-family/": {
+    "path": "/article/tips-for-making-a-blended-family-a-healthy-family/",
+    "legacySlug": "tips-for-making-a-blended-family-a-healthy-family",
+    "title": "Hilton Family Law - Tips for Making a Blended Family a Healthy Family",
+    "description": "Blended families, or stepparent families, are becoming more and more common. ",
+    "ogTitle": "Hilton Family Law - Tips for Making a Blended Family a Healthy Family",
+    "ogDescription": "Blended families, or stepparent families, are becoming more and more common. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/article-blended_fam.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/article-blended_fam.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/tips-for-making-a-blended-family-a-healthy-family/",
+    "h1": "Tips for Making a Blended Family a Healthy Family"
+  },
+  "/article/vanishing-military-retirement/": {
+    "path": "/article/vanishing-military-retirement/",
+    "legacySlug": "vanishing-military-retirement",
+    "title": "Hilton Family Law - Vanishing Military Retirement",
+    "description": "In May 2017, the Supreme Court decided a case, Howell v. Howell, involving the division of a military pension and the impact of the military spouses’ election to waive a portion of the pension amount ",
+    "ogTitle": "Hilton Family Law - Vanishing Military Retirement",
+    "ogDescription": "In May 2017, the Supreme Court decided a case, Howell v. Howell, involving the division of a military pension and the impact of the military spouses’ election to waive a portion of the pension amount ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/Military-Retirement.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/Military-Retirement.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/vanishing-military-retirement/",
+    "h1": "Vanishing Military Retirement"
+  },
+  "/article/you-marriage-ended-but-your-parenting-job-has-not/": {
+    "path": "/article/you-marriage-ended-but-your-parenting-job-has-not/",
+    "legacySlug": "you-marriage-ended-but-your-parenting-job-has-not",
+    "title": "Hilton Family Law - You Marriage Ended But Your Parenting Job has Not!",
+    "description": "Regardless of the status of your marriage, children need firm yet loving discipline. It is your job as a parent to take responsibility for what happens next. You must still meet their needs in a way that is healthy and appropriate for what all of you are going through. ",
+    "ogTitle": "Hilton Family Law - You Marriage Ended But Your Parenting Job has Not! ",
+    "ogDescription": "Regardless of the status of your marriage, children need firm yet loving discipline. It is your job as a parent to take responsibility for what happens next. You must still meet their needs in a way that is healthy and appropriate for what all of you are going through. ",
+    "ogImage": "http://www.amyhiltonlaw.com/news/news-images/HFL-NOT.jpg",
+    "ogImages": [
+      "http://www.amyhiltonlaw.com/news/news-images/HFL-NOT.jpg",
+      "http://www.amyhiltonlaw.com/images/og.jpg"
+    ],
+    "canonical": "https://amyhiltonlaw.com/article/you-marriage-ended-but-your-parenting-job-has-not/",
+    "h1": "You Marriage Ended But Your Parenting Job has Not!"
+  }
+}

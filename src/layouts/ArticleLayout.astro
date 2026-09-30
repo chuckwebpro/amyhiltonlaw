@@ -1,0 +1,43 @@
+---
+import type { ImageMetadata } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/site/PageHero.astro';
+import PracticePromo from '../components/site/PracticePromo.astro';
+import SiteContainer from '../components/site/SiteContainer.astro';
+import SiteProse from '../components/site/SiteProse.astro';
+import type { BreadcrumbEntry } from '../components/seo/Schema.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  titleExact?: boolean;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  breadcrumbs?: BreadcrumbEntry[];
+  heroTitle: string;
+  heroImage: string | ImageMetadata;
+  heroAlt?: string;
+}
+
+const { heroTitle, heroImage, heroAlt, type = 'article', ...baseProps } = Astro.props;
+---
+
+<BaseLayout type={type} {...baseProps}>
+  <PageHero title={heroTitle} image={heroImage} alt={heroAlt} />
+  <div class="bg-surface-muted py-10 lg:py-14">
+    <SiteContainer class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
+      <SiteProse>
+        <slot />
+      </SiteProse>
+      <div
+        class="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,140px)+0.75rem)] lg:self-start"
+      >
+        <slot name="sidebar" />
+      </div>
+    </SiteContainer>
+  </div>
+  <PracticePromo />
+</BaseLayout>

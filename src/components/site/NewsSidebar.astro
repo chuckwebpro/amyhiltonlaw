@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+import SiteButton from './SiteButton.astro';
+import { NEWS_CATEGORIES } from '../../data/news-categories';
+
+interface Props {
+  activeCategory?: string;
+}
+
+const { activeCategory = '' } = Astro.props;
+---
+
+<aside class="news-sidebar lg:self-start" aria-label="News filters">
+  <form id="news-search-form" class="news-search mb-5" role="search">
+    <label for="news-search-text" class="sr-only">Search posts</label>
+    <div class="news-search-field">
+      <input
+        type="search"
+        id="news-search-text"
+        name="q"
+        placeholder="Search articles"
+        autocomplete="off"
+      />
+      <SiteButton type="submit" class="rounded-none uppercase">Find</SiteButton>
+    </div>
+  </form>
+
+  <div class="news-category-panel">
+    <h2 class="m-0 mb-2 px-2 font-sans text-sm font-bold tracking-wide text-neutral-800 uppercase">
+      Categories
+    </h2>
+    <ul class="news-category-list m-0 list-none space-y-0.5 p-0">
+      {
+        NEWS_CATEGORIES.map((item) => {
+          const isActive = item.slug === activeCategory;
+          const href = item.slug ? `/news/?category=${item.slug}` : '/news/';
+          return (
+            <li>
+              <a
+                href={href}
+                data-category-link={item.slug}
+                class:list={[
+                  'news-category-link inline-flex min-h-9 w-full items-center gap-2.5 px-2 py-1.5 no-underline',
+                  isActive
+                    ? 'text-brand-700 font-semibold'
+                    : 'hover:text-brand-600 text-neutral-700',
+                ]}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                <span
+                  class="inline-flex size-6 shrink-0 items-center justify-center rounded-full text-white"
+                  style={`background-color: rgba(0, 0, 255, ${item.tint});`}
+                  aria-hidden="true"
+                >
+                  <Icon name={item.icon} class="size-3" />
+                </span>
+                {item.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</aside>

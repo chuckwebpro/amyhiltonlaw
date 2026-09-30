@@ -1,0 +1,66 @@
+---
+import { site } from '../../config/site';
+
+const shareUrl = Astro.url.href;
+const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+---
+
+<aside class="social-rail fixed bottom-0 left-0 z-30 hidden md:block" aria-label="Social sharing">
+  <ul class="m-0 flex list-none flex-col p-0">
+    {
+      site.social.facebook && (
+        <li>
+          <a
+            href={site.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-rail-link"
+            aria-label="Visit us on Facebook"
+          >
+            <i class="fab fa-facebook-f" aria-hidden="true" />
+          </a>
+        </li>
+      )
+    }
+    <li>
+      <a
+        href={facebookShare}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-rail-link"
+        aria-label="Share this page on Facebook"
+      >
+        <i class="fas fa-share-alt-square" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</aside>
+
+<style>
+  .social-rail-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0 50% 50% 0;
+    background-color: rgb(2, 32, 51);
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .social-rail-link:hover,
+  .social-rail-link:focus-visible {
+    background-color: #fff;
+    color: rgb(2, 32, 51);
+  }
+
+  .social-rail-link i {
+    line-height: 1;
+  }
+</style>

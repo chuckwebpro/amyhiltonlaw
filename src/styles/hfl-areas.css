@@ -1,0 +1,76 @@
+/* Legacy home / interior “Areas of Practice” band */
+.areas {
+  display: flex;
+  justify-content: center;
+}
+
+/* Width: hfl-contained.css — do not set width: 100% here (overrides breakpoints). */
+.areas .contained {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+}
+
+.areas-banner {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 150px 15px;
+  display: flex;
+  flex-direction: column;
+  background-image: url('/images/umbrella_in_rain-1500.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  min-height: 320px;
+}
+
+.areas-banner__title,
+.areas-banner__links a {
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.areas-banner__title {
+  font-size: 2em;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.areas-banner__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.areas-banner__links a {
+  font-size: 1.4em;
+  line-height: 200%;
+  transition: 0.25s color ease-in-out;
+  text-decoration: none;
+}
+
+.areas-banner__links a:hover {
+  color: #77c;
+}
+
+@media (min-width: 320px) {
+  .areas-banner__title {
+    font-size: 2em;
+  }
+
+  .areas-banner__links a {
+    font-size: 1.75em;
+  }
+}
+
+@media (min-width: 1070px) {
+  .areas-banner {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 150px;
+    min-height: 280px;
+  }
+}

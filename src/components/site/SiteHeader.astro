@@ -1,0 +1,547 @@
+---
+import { navigation } from '../../config/navigation';
+import { site } from '../../config/site';
+import PublicPicture from './PublicPicture.astro';
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href?: string): boolean {
+  if (!href) return false;
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+
+function panelLinks(item: (typeof navigation.primary)[number]) {
+  if (!item.panel || item.panel.kind !== 'links') return [];
+  return item.panel.links;
+}
+
+/** Flatten primary nav into bottom-nav rows (links + dropdown groups). */
+const bottomNavItems = navigation.primary.map((item) => ({
+  label: item.label,
+  href: item.href,
+  links: panelLinks(item),
+}));
+---
+
+<div class="navigation" id="site-navigation">
+  <nav class="primary-nav" aria-label="Site">
+    <div class="contained">
+      <div class="top-nav">
+        <a href="/" class="logo">
+          <PublicPicture
+            src="/images/logo-main.webp"
+            alt="Hilton Family Law Logo"
+            widths={[306, 612]}
+            sizes="306px"
+            width={306}
+            height={129}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </a>
+        <ul>
+          <li>
+            <a href={`tel:${site.business.phoneHref}`}>
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              {site.business.phone.replace(/\s/g, '')}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${site.business.email}`}>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              {site.business.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="bottom-nav">
+        {
+          bottomNavItems.map((item) => {
+            if (item.links.length > 0) {
+              return (
+                <li class="mob-toggle has-submenu">
+                  <span>{item.label}</span>
+                  <ul>
+                    {item.links.map((link) => (
+                      <li>
+                        <a href={link.href} class:list={[isActive(link.href) && 'is-active']}>
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              );
+            }
+            return (
+              <li>
+                <a href={item.href} class:list={[isActive(item.href) && 'is-active']}>
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+        {
+          site.social.facebook && (
+            <li>
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f" aria-hidden="true" />
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile bar (legacy .mobile-navigation, &lt; 1070px) -->
+  <div class="mobile-navigation">
+    <ul>
+      <li>
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
+          <span class="sr-only">Menu</span>
+        </button>
+      </li>
+      <li>
+        <a href="/" class="logo">
+          <PublicPicture
+            src="/images/logo_ftr.webp"
+            alt="Hilton Family Law"
+            widths={[150, 246, 300]}
+            sizes="150px"
+            width={150}
+            height={60}
+            loading="eager"
+          />
+        </a>
+      </li>
+      <li>
+        <a href={`tel:${site.business.phoneHref}`} aria-label="Call">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+      {
+        bottomNavItems.map((item) => {
+          if (item.links.length > 0) {
+            return (
+              <li>
+                <strong>{item.label}</strong>
+                <ul>
+                  {item.links.map((link) => (
+                    <li>
+                      <a href={link.href}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          }
+          return (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</div>
+
+<style is:global>
+  /* Widths: src/styles/hfl-contained.css (.contained) */
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #fff;
+    opacity: 1;
+    transition:
+      0.25s opacity ease-in-out,
+      0.25s background-color ease-in-out;
+  }
+
+  .navigation.scrolling {
+    opacity: 0.5;
+    background-color: #fff;
+    font-size: 12px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    transition:
+      0.25s opacity ease-in-out,
+      0.25s background-color ease-in-out;
+  }
+
+  .navigation.scrolling:hover {
+    opacity: 1;
+    transition: 0.25s opacity ease-in-out;
+  }
+
+  .navigation img {
+    width: 100%;
+    margin-bottom: 5px;
+    transition: 0.5s width ease-in-out;
+  }
+
+  .navigation.scrolling img {
+    width: 50%;
+    transition: 0.5s width ease-in-out;
+  }
+
+  .navigation .primary-nav {
+    display: none;
+  }
+
+  .navigation .primary-nav .contained {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1070px) {
+    .navigation .primary-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navigation .mobile-navigation,
+    .navigation .mobile-drawer {
+      display: none !important;
+    }
+
+    .navigation .primary-nav .top-nav {
+      border-bottom: 1px solid #000;
+      margin-bottom: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      color: #494969;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.5em;
+    }
+
+    .navigation .primary-nav .top-nav > ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex: 0 0 auto;
+      align-self: stretch;
+      list-style: none;
+      padding: 10px 0;
+      margin: 10px 0;
+      text-align: right;
+    }
+
+    .navigation .primary-nav .top-nav > ul li {
+      padding: 0 10px;
+      line-height: 1;
+    }
+
+    .navigation .primary-nav .top-nav > ul li a {
+      color: inherit;
+      text-decoration: none;
+      display: inline;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .navigation .primary-nav .top-nav > ul li a:hover {
+      color: #c00;
+    }
+
+    .navigation .primary-nav .top-nav > ul li i {
+      font-size: 24px;
+      vertical-align: middle;
+      margin-right: 0.15em;
+    }
+
+    .navigation .primary-nav .bottom-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      flex-wrap: nowrap;
+      font-size: 1.5em;
+    }
+
+    .navigation .primary-nav .bottom-nav > li {
+      padding: 0;
+      color: #2d2d2d;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > a,
+    .navigation .primary-nav .bottom-nav > li > span {
+      padding: 10px 18px;
+      display: inline-block;
+      font-family: 'Open Sans', sans-serif;
+      color: #2d2d2d;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > span {
+      cursor: default;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > a.is-active {
+      font-weight: 600;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:hover {
+      background-color: #e1e1e1 !important;
+      cursor: pointer;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:hover:last-child {
+      background-color: transparent !important;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-transform: capitalize;
+      font-size: 14px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      font-weight: 600;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:hover > ul,
+    .navigation .primary-nav .bottom-nav > li:focus-within > ul {
+      display: block;
+      position: absolute;
+      top: 53px;
+      left: 0;
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0.75);
+      z-index: 60;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > ul a {
+      display: block;
+      padding: 8px 12px;
+      color: #2d2d2d;
+      text-decoration: none;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > ul a:hover {
+      background-color: #e1e1e1;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:last-child {
+      flex: 0 1 calc(100% - 952px);
+      text-align: right;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:last-child a {
+      display: inline-block;
+      padding: 10px 18px;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:last-child i {
+      font-size: 1em;
+      vertical-align: middle;
+    }
+
+    .navigation.scrolling .primary-nav .top-nav {
+      padding: 10px 0 0;
+      margin-bottom: 0;
+    }
+
+    .navigation.scrolling .primary-nav .top-nav > ul {
+      margin: 0;
+    }
+
+    .navigation.scrolling .primary-nav .bottom-nav {
+      background-color: transparent;
+    }
+
+    .navigation.scrolling .primary-nav .bottom-nav > li:hover > ul,
+    .navigation.scrolling .primary-nav .bottom-nav > li:focus-within > ul {
+      top: 44px;
+    }
+  }
+
+  @media (min-width: 1270px) {
+    .navigation .primary-nav .bottom-nav > li {
+      padding: 5px 0;
+    }
+
+    .navigation .primary-nav .bottom-nav > li > a,
+    .navigation .primary-nav .bottom-nav > li > span {
+      padding: 5px 27px;
+    }
+
+    .navigation .primary-nav .bottom-nav > li:last-child {
+      flex: 0 1 calc(100% - 1054px);
+      text-align: right;
+    }
+  }
+
+  @media (min-width: 1570px) {
+    .navigation .primary-nav .top-nav > ul li i {
+      background-color: transparent;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      padding: 5px;
+      box-sizing: border-box;
+      display: inline-block;
+      text-align: center;
+      line-height: 25px;
+    }
+  }
+
+  .navigation .mobile-navigation {
+    display: none;
+  }
+
+  /* Mobile */
+  @media (max-width: 1069px) {
+    .navigation .mobile-navigation {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      padding: 5px 20px;
+      font-size: 1.5em;
+      color: #888;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    .navigation .mobile-navigation ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navigation .mobile-navigation .logo img {
+      width: 150px;
+      height: auto;
+    }
+
+    .navigation .mobile-navigation button,
+    .navigation .mobile-navigation a {
+      background: none;
+      border: none;
+      color: inherit;
+      padding: 15px 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .navigation .mobile-drawer {
+      position: fixed;
+      top: var(--site-header-height, 108px);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 20px;
+      z-index: 49;
+    }
+
+    .navigation .mobile-drawer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navigation .mobile-drawer a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+    }
+
+    .navigation .mobile-drawer strong {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Reserve space under fixed header */
+  :root {
+    --site-header-height: 140px;
+  }
+
+  @media (max-width: 1069px) {
+    :root {
+      /* Matches measured mobile bar before JS sync (logo + tap targets). */
+      --site-header-height: 108px;
+    }
+  }
+
+  body {
+    padding-top: var(--site-header-height);
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('site-navigation');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+
+  function syncHeaderHeight() {
+    if (!(nav instanceof HTMLElement)) return;
+    document.documentElement.style.setProperty('--site-header-height', `${nav.offsetHeight}px`);
+  }
+
+  function updateScrollHeader() {
+    if (!(nav instanceof HTMLElement)) return;
+    if (window.scrollY === 0) {
+      nav.classList.remove('scrolling');
+    } else {
+      nav.classList.add('scrolling');
+    }
+  }
+
+  syncHeaderHeight();
+  if (nav) new ResizeObserver(syncHeaderHeight).observe(nav);
+
+  updateScrollHeader();
+  window.addEventListener('scroll', updateScrollHeader, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    if (!(drawer instanceof HTMLElement) || !(toggle instanceof HTMLButtonElement)) return;
+    const open = drawer.hidden;
+    drawer.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+</script>

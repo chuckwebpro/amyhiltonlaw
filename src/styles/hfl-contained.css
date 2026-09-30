@@ -1,0 +1,48 @@
+/**
+ * Legacy Hilton `.contained` — fixed widths at breakpoints, 10px horizontal padding.
+ * Used by SiteHeader and SiteContainer so header and body align.
+ */
+.contained,
+.hfl-contained {
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 550px) {
+  .contained,
+  .hfl-contained {
+    width: 550px;
+  }
+}
+
+@media (min-width: 800px) {
+  .contained,
+  .hfl-contained {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1070px) {
+  .contained,
+  .hfl-contained {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1270px) {
+  .contained,
+  .hfl-contained {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1570px) {
+  .contained,
+  .hfl-contained {
+    width: 1500px;
+  }
+}

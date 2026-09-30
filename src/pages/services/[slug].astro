@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import InteriorContentPage from '../../components/site/InteriorContentPage.astro';
+import { getLegacySeo } from '../../lib/legacySeo';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const entries = await getCollection('services');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+};
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const legacy = getLegacySeo(entry.data.sitePath);
+const heroTitle = legacy?.h1 ?? entry.id;
+---
+
+<InteriorContentPage
+  sitePath={entry.data.sitePath}
+  heroImage={entry.data.heroImage}
+  heroImageAlt={entry.data.heroImageAlt}
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Areas Of Practice', href: '/services/child-custody/' },
+    { name: heroTitle, href: entry.data.sitePath },
+  ]}
+  service={{
+    name: heroTitle,
+    description: legacy?.description,
+  }}
+>
+  <Content />
+</InteriorContentPage>

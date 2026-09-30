@@ -1,0 +1,45 @@
+# Hilton Family Law
+
+> Certified Family Law Specialist serving Antioch and Contra Costa County, California. Divorce, child custody, child and spousal support, property division, domestic violence, enforcement, modifications, retirement, and set-asides.
+
+Hilton Family Law helps families navigate divorce and custody with dignity. Content on this site is general information, not legal advice. For advice about your situation, contact the firm directly.
+
+## Contact
+
+- Phone: (925) 384-2086
+- Fax: (925) 775-7065
+- Email: legal@amyhiltonlaw.com
+- Address: 5181 Lone Tree Way, Antioch, CA 94531
+- Website: https://amyhiltonlaw.com/
+
+## Primary pages
+
+- Home: https://amyhiltonlaw.com/
+- Contact: https://amyhiltonlaw.com/contact/
+- News (articles index): https://amyhiltonlaw.com/news/
+- Endorsements: https://amyhiltonlaw.com/endorsements/
+- Amy Hilton: https://amyhiltonlaw.com/our-lawyers/amy-hilton/
+- Hemma Gill: https://amyhiltonlaw.com/our-lawyers/hemma-gill/
+
+## Practice areas
+
+- Child custody and visitation: https://amyhiltonlaw.com/services/child-custody/
+- Child support and paternity: https://amyhiltonlaw.com/services/child-and-spousal-support/
+- Domestic violence: https://amyhiltonlaw.com/services/domestic-violence/
+- Property division: https://amyhiltonlaw.com/services/property-division/
+- Retirement: https://amyhiltonlaw.com/services/retirement/
+- Modifications of child custody: https://amyhiltonlaw.com/services/modifications/
+- Enforcement of agreements: https://amyhiltonlaw.com/services/enforcement/
+- Set asides: https://amyhiltonlaw.com/services/set-asides/
+
+## Geographic focus
+
+Antioch, Contra Costa County, and the San Francisco East Bay, California.
+
+## Articles
+
+Individual articles live at https://amyhiltonlaw.com/article/{slug}/ (canonical slugs; legacy URLs redirect with HTTP 301).
+
+## Sitemap
+
+https://amyhiltonlaw.com/sitemap-index.xml
