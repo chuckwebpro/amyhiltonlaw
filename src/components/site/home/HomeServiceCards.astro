@@ -211,17 +211,14 @@ const cards = [
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  function slideStepPx(ul: HTMLUListElement): number {
-    const first = ul.querySelector<HTMLLIElement>(':scope > .service-slide');
-    return first?.offsetWidth ?? 0;
-  }
+  let cachedSlideStep = 0;
 
   function nextService() {
     const ul = document.querySelector<HTMLUListElement>('.service .contained > ul.service-track');
     const first = ul?.querySelector<HTMLLIElement>(':scope > .service-slide:first-child');
     if (!ul || !first) return;
 
-    const step = slideStepPx(ul);
+    const step = cachedSlideStep;
     if (step <= 0) {
       window.setTimeout(nextService, INTERVAL_MS);
       return;
@@ -242,9 +239,12 @@ const cards = [
 
       ul.style.transition = 'none';
       ul.style.transform = 'translateX(0)';
-      void ul.offsetWidth;
-      ul.style.removeProperty('transition');
-      ul.style.removeProperty('transform');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          ul.style.removeProperty('transition');
+          ul.style.removeProperty('transform');
+        });
+      });
     };
 
     const onTransitionEnd = (event: TransitionEvent) => {
@@ -264,6 +264,14 @@ const cards = [
     if (prefersReducedMotion()) return;
 
     track.dataset.carouselInit = 'true';
+
+    const syncSlideStep = () => {
+      const first = track.querySelector<HTMLLIElement>(':scope > .service-slide');
+      cachedSlideStep = first?.getBoundingClientRect().width ?? 0;
+    };
+    syncSlideStep();
+    new ResizeObserver(syncSlideStep).observe(track);
+
     window.setTimeout(nextService, INTERVAL_MS);
   }
 

@@ -124,7 +124,7 @@ const bottomNavItems = navigation.primary.map((item) => ({
             widths={[150, 246, 300]}
             sizes="150px"
             width={150}
-            height={60}
+            height={63}
             loading="eager"
             fetchpriority="low"
           />
@@ -523,22 +523,25 @@ const bottomNavItems = navigation.primary.map((item) => ({
   const toggle = document.querySelector('.mobile-menu-toggle');
   const drawer = document.getElementById('mobile-drawer');
 
-  function syncHeaderHeight() {
-    if (!(nav instanceof HTMLElement)) return;
-    document.documentElement.style.setProperty('--site-header-height', `${nav.offsetHeight}px`);
+  function setHeaderHeight(height: number) {
+    document.documentElement.style.setProperty('--site-header-height', `${height}px`);
   }
 
   function updateScrollHeader() {
     if (!(nav instanceof HTMLElement)) return;
-    if (window.scrollY === 0) {
-      nav.classList.remove('scrolling');
-    } else {
-      nav.classList.add('scrolling');
-    }
+    nav.classList.toggle('scrolling', window.scrollY !== 0);
   }
 
-  syncHeaderHeight();
-  if (nav) new ResizeObserver(syncHeaderHeight).observe(nav);
+  if (nav instanceof HTMLElement) {
+    new ResizeObserver((entries) => {
+      const entry = entries[entries.length - 1];
+      const height =
+        entry.borderBoxSize?.[0]?.blockSize ??
+        entry.contentBoxSize?.[0]?.blockSize ??
+        entry.contentRect.height;
+      setHeaderHeight(height);
+    }).observe(nav);
+  }
 
   updateScrollHeader();
   window.addEventListener('scroll', updateScrollHeader, { passive: true });

@@ -49,6 +49,9 @@ export function trackConversion(type: ConversionType, detail: ConversionDetail =
 
 /** Wires phone and directions links site-wide without per-page markup. */
 export function bindOutboundConversions(): void {
+  if (document.documentElement.dataset.outboundTrack === 'true') return;
+  document.documentElement.dataset.outboundTrack = 'true';
+
   document.addEventListener('click', (event) => {
     const link = (event.target as HTMLElement | null)?.closest('a');
     if (!link) return;

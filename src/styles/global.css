@@ -1,6 +1,11 @@
-@import '@fontsource/open-sans/latin-400.css';
-@import '@fontsource/open-sans/latin-600.css';
-@import '@fontsource/open-sans/latin-700.css';
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 800;
+  src: url('@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2')
+    format('woff2-variations');
+}
 @import 'tailwindcss';
 @import './theme.css';
 @import './hfl-contained.css';

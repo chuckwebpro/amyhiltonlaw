@@ -3,7 +3,7 @@
  * RecaptchaV3 attaches the token in capture phase, then re-submits here.
  */
 
-import { trackConversion } from './track';
+import { bindOutboundConversions, trackConversion } from './track';
 
 function isSiteForm(form: EventTarget | null): form is HTMLFormElement {
   return (
@@ -36,6 +36,8 @@ function showFormError(form: HTMLFormElement, text: string): void {
 }
 
 export function initSiteForms(): void {
+  bindOutboundConversions();
+
   const config = document.getElementById('form-handler-config');
   const formEndpoint = config?.dataset.endpoint ?? '/api/submit.php';
 
